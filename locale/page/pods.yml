@@ -20,36 +20,36 @@ texts:
     and is the basic unit of deployment in Kubernetes. All containers in a pod
 
     are scheduled on the same node.
-  ja: __COPY__
+  ja: pod はネットワークとマウント名前空間を共有するコンテナの集まりで、Kubernetes におけるデプロイメントの基本単位です。pod 内のすべてのコンテナは同じ Node にスケジュールされています。
 ---
 texts:
   en: >-
     To launch a pod using the container [image](https://hub.docker.com/r/mhausenblas/simpleservice/)
 
     `mhausenblas/simpleservice:0.5.0` and exposing a HTTP API on port `9876`, execute:
-  ja: __COPY__
+  ja: コンテナ[イメージ](https://hub.docker.com/r/mhausenblas/simpleservice/) `mhausenblas/simpleservice:0.5.0` を使って、HTTP API をポート番号 `9876` で公開する Pod を起動するには、以下を実行してください。
 ---
 texts:
   en: "We can now see that the pod is running:"
-  ja: __COPY__
+  ja: すると、pod が実行中であることを次のように確認できます。
 ---
 texts:
   en: >-
     From within the cluster (e.g. via `minishift ssh`) this pod is accessible via the pod IP `172.17.0.3`,
 
     which we've learned from the `kubectl describe` command above:
-  ja: __COPY__
+  ja: クラスタの内部からは (たとえば `minishift ssh` を使うと) この pod は pod IP `172.17.0.3` でアクセスできます。そのことは上のコマンド `kubectl describe` からわかります。
 ---
 texts:
   en: >-
     Note that `kubectl run` creates a [deployment](/deployments/), so in order to
 
     get rid of the pod you have to execute `kubectl delete deployment sise`.
-  ja: __COPY__
+  ja: `kubectl run` は [deployment](/deployments/) を作成することに注意してください。そのため、作成した Pod を取り除くには `kubectl delete deployment sise` を実行してください。
 ---
 texts:
   en: Using configuration file
-  ja: __COPY__
+  ja: 設定ファイルを使用する
 ---
 texts:
   en: >-
@@ -60,14 +60,14 @@ texts:
     running the already known `simpleservice` image from above along with
 
     a generic `CentOS` container:
-  ja: __COPY__
+  ja: 設定ファイルから Pod を作成することもできます。今回は、[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/pods/pod.yaml) は上ですでに使用した `simpleservice` イメージと一般的な `CentOS` コンテナを一緒に実行しています。
 ---
 texts:
   en: >-
     Now we can exec into the `CentOS` container and access the `simpleservice`
 
     on localhost:
-  ja: __COPY__
+  ja: これで localhost から `CentOS` コンテナの中に exec をして、`simpleservice` にアクセスできます。
 ---
 texts:
   en: >-
@@ -76,18 +76,18 @@ texts:
     container in a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/pods/constraint-pod.yaml)
 
     can use (here: `64MB` of RAM and `0.5` CPUs):
-  ja: __COPY__
+  ja: pod の中で `resources` フィールドを指定すると、どれくらいの CPU と RAM を [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/pods/constraint-pod.yaml) 内のコンテナが使用できるかを制限できます。(ここでは RAM が `64MB`、CPU が `0.5` です)
 ---
 texts:
   en: >-
     Learn more about resource constraints in Kubernetes via the docs [here](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-ram-container/)
 
     and [here](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/).
-  ja: __COPY__
+  ja: Kubernetes のリソース制限についてさらに学ぶには[ここ](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-ram-container/)と[ここ](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)のドキュメントをお読みください。
 ---
 texts:
   en: "To remove all the pods created, just run:"
-  ja: __COPY__
+  ja: 作成した pod をすべて削除するには、次を実行するだけです。
 ---
 texts:
   en: >-
@@ -98,8 +98,8 @@ texts:
     manually take care of keeping them running in case of a failure. A better way
 
     to supervise pods is to use [deployments](/deployments), giving you much more control over the life cycle, including rolling out a new version.
-  ja: __COPY__
+  ja: まとめると、Kubernetes で一つ以上のコンテナを (一緒に) 起動するのは簡単ですが、それを上のように直接行うのには重大な限界があります。障害があってもコンテナの実行を維持するには手動で管理しなければならないからです。それよりも良い方法は、[deployment](/deployments) で pod を管理することです。deployment を使うとライフサイクルを超えて pod を管理することができるため、新バージョンを展開することも可能です。
 ---
 texts:
   en: "[Next](/labels)"
-  ja: __COPY__
+  ja: "[次](/labels)"
