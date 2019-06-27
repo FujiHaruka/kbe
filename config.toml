@@ -1,9 +1,10 @@
 baseURL = "http://kubernetesbyexample.com"
-DefaultContentLanguage = "en"
+DefaultContentLanguage = "ja"
 title = "Kubernetes By Example"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 googleAnalytics = "UA-34425776-2"
+contentDir = "content-ja"
 
 [Params]
   subtitle = "Brought to you by the OpenShift team"

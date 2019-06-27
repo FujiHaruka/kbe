@@ -1,0 +1,26 @@
+{
+  "name": "kbe",
+  "description": "Kubernetes By Example",
+  "version": "1.0.0",
+  "author": "FujiHaruka (translator)",
+  "bugs": {
+    "url": "https://github.com/FujiHaruka/kbe/issues"
+  },
+  "dependencies": {
+    "inalz": "^0.4.1"
+  },
+  "homepage": "https://github.com/FujiHaruka/kbe#readme",
+  "keywords": [
+    "Kubernetes"
+  ],
+  "license": "Apache-2.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FujiHaruka/kbe.git"
+  },
+  "scripts": {
+    "build": "inalz build",
+    "sync": "inalz sync"
+  }
+}
