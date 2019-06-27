@@ -15,22 +15,22 @@ texts:
 ---
 texts:
   en: A deployment is a supervisor for [pods](/pods/), giving you fine-grained control over how and when a new pod version is rolled out as well as rolled back to a previous state.
-  ja: __COPY__
+  ja: deployment は [pod](/pods/) のスーパーバイザです。deployment を使うと、新バージョンの pod をいつどのようにロールアウトし、また以前の状態にロールバックするかをきめ細かく制御できます。
 ---
 texts:
   en: >-
     Let's create a [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml)
 
     called `sise-deploy` that supervises two replicas of a pod as well as a replica set:
-  ja: __COPY__
+  ja: [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml) を作りましょう。名前は `sise-deploy` で、2 つの pod の replica と 1 つの replica set を管理します。
 ---
 texts:
   en: "You can have a look at the deployment, as well as the the replica set and the pods the deployment looks after like so:"
-  ja: __COPY__
+  ja: deployment、replica set、そして deployment が面倒を見ている pod を次のように確認できます。
 ---
 texts:
   en: Note the naming of the pods and replica set, derived from the deployment name.
-  ja: __COPY__
+  ja: pod と replica set の命名は deployment の名前を元にしています。
 ---
 texts:
   en: >-
@@ -39,47 +39,47 @@ texts:
     to return the version `0.9`. Let's verify that from within the cluster (using `kubectl describe`
 
     first to get the IP of one of the pods):
-  ja: __COPY__
+  ja: この時点で、pod の中で実行されている `sise` コンテナはバージョン `0.9` を返すように設定されています。クラスタの内部から確認してみましょう。(pod の IP を取得するには `kubectl describe` を使います)
 ---
 texts:
   en: >-
     Let's now see what happens if we change that version to `1.0` in an updated
 
     [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d10.yaml):
-  ja: __COPY__
+  ja: ではバージョンを `1.0` に変えるとどうなるか確認しましょう。[deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d10.yaml) を更新します。
 ---
 texts:
   en: >-
     Note that you could have used `kubectl edit deploy/sise-deploy` alternatively to
 
     achieve the same by manually editing the deployment.
-  ja: __COPY__
+  ja: 手動で deployment を編集する代わりに `kubectl edit deploy/sise-deploy` を使えることに留意してください。
 ---
 texts:
   en: >-
     What we now see is the rollout of two new pods with the updated version `1.0` as well
 
     as the two old pods with version `0.9` being terminated:
-  ja: __COPY__
+  ja: これでわかりますが、バージョン `1.0` に更新された新しい pod が 2 つロールアウトされ、バージョン `0.9` の古い pod が 2 つ停止しました。
 ---
 texts:
   en: "Also, a new replica set has been created by the deployment:"
-  ja: __COPY__
+  ja: また、新しい replica set が deployment によって作成されました。
 ---
 texts:
   en: Note that during the deployment you can check the progress using `kubectl rollout status deploy/sise-deploy`.
-  ja: __COPY__
+  ja: deployment 中に進行を確認するには `kubectl rollout status deploy/sise-deploy` が使えます。
 ---
 texts:
   en: >-
     To verify that if the new `1.0` version is really available, we execute from
 
     within the cluster (again using `kubectl describe` get the IP of one of the pods):
-  ja: __COPY__
+  ja: 新しい `1.0` バージョンが本当に利用可能かどうかを確認するために、クラスタの内部から以下を実行します。(再掲。pod の IP を取得するには `kubectl describe` を使います)
 ---
 texts:
   en: "A history of all deployments is available via:"
-  ja: __COPY__
+  ja: すべての deployment の履歴は次のように取得できます。
 ---
 texts:
   en: >-
@@ -88,29 +88,29 @@ texts:
     the previous version, however you can also explicitly roll back to a specific revision,
 
     as in our case to revision 1 (the original pod version):
-  ja: __COPY__
+  ja: deployment に問題があれば、Kubernetes は自動的に前のバージョンにロールバックしますが、特定のリビジョンに明示的にロールバックすることもできます。この例ではリビジョン 1 (元の pod バージョン)にロールバックします。
 ---
 texts:
   en: >-
     At this point in time we're back at where we started, with two new pods serving
 
     again version `0.9`.
-  ja: __COPY__
+  ja: この時点で最初の状態に戻りました。2 つの新しい pod がまたバージョン `0.9` で実行されています。
 ---
 texts:
   en: >-
     Finally, to clean up, we remove the deployment and with it the replica sets and
 
     pods it supervises:
-  ja: __COPY__
+  ja: 最後に、クリーンアップするため deployment を削除します。deployment が管理している replica set と pod も一緒に削除されます。
 ---
 texts:
   en: >-
     See also the [docs](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
     for more options on deployments and when they are triggered.
-  ja: __COPY__
+  ja: deployment の他のオプションと、それがいつトリガーされるかについては、[ドキュメント](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)も参考にしてください。
 ---
 texts:
   en: "[Previous](/labels) | [Next](/services)"
-  ja: __COPY__
+  ja: "[前](/labels) | [次](/services)"

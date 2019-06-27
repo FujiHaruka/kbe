@@ -45,7 +45,7 @@ texts:
     Note that `kubectl run` creates a [deployment](/deployments/), so in order to
 
     get rid of the pod you have to execute `kubectl delete deployment sise`.
-  ja: `kubectl run` は [deployment](/deployments/) を作成することに注意してください。そのため、作成した Pod を取り除くには `kubectl delete deployment sise` を実行してください。
+  ja: `kubectl run` は [deployment](/deployments/) を作成することに留意してください。そのため、作成した Pod を取り除くには `kubectl delete deployment sise` を実行してください。
 ---
 texts:
   en: Using configuration file

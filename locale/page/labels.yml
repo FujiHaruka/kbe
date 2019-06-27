@@ -82,7 +82,7 @@ texts:
 ---
 texts:
   en: Beware that this will destroy any pods with those labels.
-  ja: 指定した label をもつ pod がすべて削除されるので注意してください。
+  ja: 指定した label をもつ pod がすべて削除されるので留意してください。
 ---
 texts:
   en: "You can also delete them directly, via their names, with:"
