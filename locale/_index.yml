@@ -1,6 +1,6 @@
 texts:
   en: "This is a hands-on introduction to Kubernetes. Browse the examples:"
-  ja: __COPY__
+  ja: これは Kubernetes の実践的な入門です。例を御覧ください。
 ---
 texts:
   en: "[pods](/pods/)"
@@ -79,4 +79,4 @@ texts:
     Want to try it out yourself? You can run all this on Red Hat's distribution of
 
     Kubernetes, OpenShift. Follow the instructions [here](/diy/) for a local setup or sign up for [openshift.com](https://openshift.com/) for an online environment.
-  ja: __COPY__
+  ja: 自分で試してみたいですか？　ここにある例はすべて、Kubernetes の Red Hat によるディストリビューション OpenShift で実行できます。ローカルでセットアップするには[ここ](/diy/)の説明を見てください。オンライン環境で実行するには [openshift.com](https://openshift.com/) にサインアップしてください。
