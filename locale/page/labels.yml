@@ -26,36 +26,36 @@ texts:
     environments such as 'this pod is running in production' or ownership,
 
     like 'department X owns that pod'.
-  ja: __COPY__
+  ja: label は Kubernetes オブジェクトを組織化するための仕組みです。label は key/value のペアで、長さと許可される値にはある[制約](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set)が課せられますが、事前に意味は定義されていません。そのため、label は目的に合わせて自由に選べます。たとえば、「この pod はプロダクション環境で実行されている」といった環境を表現したり、「あの pod は X 課が所有している」といった所有権を表現したりできます。
 ---
 texts:
   en: "Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/pod.yaml) that initially has one label (`env=development`):"
-  ja: __COPY__
+  ja: 初期状態で一つの label (`env=development`) をもつ [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/pod.yaml) を作成しましょう。
 ---
 texts:
   en: >-
     In above `get pods` command note the `--show-labels` option that output the
 
     labels of an object in an additional column.
-  ja: __COPY__
+  ja: 上の `get pods` に `--show-labels` オプションを付けました。このオプションを指定すると、出力にオブジェクトの label 用の列を追加します。
 ---
 texts:
   en: "You can add a label to the pod as:"
-  ja: __COPY__
+  ja: 次のように label をこの pod に追加できます。
 ---
 texts:
   en: >-
     To use a label for filtering, for example to list only pods that have an
 
     `owner` that equals `michael`, use the `--selector` option:
-  ja: __COPY__
+  ja: label でフィルターするには、`--selector` オプションを使用します。たとえば、`owner` が `michael` と等しい pod だけをリスト表示するには、次のようにします。
 ---
 texts:
   en: >-
     The `--selector` option can be abbreviated to `-l`, so to select pods that are
 
     labelled with `env=development`, do:
-  ja: __COPY__
+  ja: "`--selector` オプションは `-l` に短縮できます。`env=development` という label の pod だけを選ぶにはこうします。"
 ---
 texts:
   en: >-
@@ -64,37 +64,37 @@ texts:
     Let's launch [another pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/anotherpod.yaml)
 
     that has two labels (`env=production` and `owner=michael`):
-  ja: __COPY__
+  ja: Kubernetes オブジェクトは複数の値を扱う set-based selector もサポートしています。もう一つの [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/anotherpod.yaml) を起動しましょう。二つの label が (`env=production` と `owner=michael`) 付けられています。
 ---
 texts:
   en: >-
     Now, let's list all pods that are either labelled with `env=development` or with
 
     `env=production`:
-  ja: __COPY__
+  ja: では、`env=development` または `env=production` どちらかの label が付いた pod をリスト表示しましょう。
 ---
 texts:
   en: >-
     Other verbs also support label selection, for example, you could
 
     remove both of these pods with:
-  ja: __COPY__
+  ja: label selection は他のコマンドでもサポートされています。たとえば、これまでの pod を削除するには次のようにします。
 ---
 texts:
   en: Beware that this will destroy any pods with those labels.
-  ja: __COPY__
+  ja: 指定した label をもつ pod がすべて削除されるので注意してください。
 ---
 texts:
   en: "You can also delete them directly, via their names, with:"
-  ja: __COPY__
+  ja: これらの pod を名前を指定して直接削除することもできます。
 ---
 texts:
   en: >-
     Note that labels are not restricted to pods. In fact you can apply them to
 
     all sorts of objects, such as nodes or services.
-  ja: __COPY__
+  ja: label を付けられるのは pod だけではありません。node や service といったどんなオブジェクトにも label を適用できます。
 ---
 texts:
   en: "[Previous](/pods) | [Next](/deployments)"
-  ja: __COPY__
+  ja: "[前](/pods) | [次](/deployments)"
