@@ -1,0 +1,67 @@
+texts:
+  en: >-
+    +++
+
+    title = "Replication Controllers"
+
+    subtitle = "Kubernetes replication controllers by example"
+
+    date = "2019-02-27"
+
+    url = "/rcs/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: >-
+    A replication controller (RC) is a supervisor for long-running pods.
+
+    An RC will launch a specified number of pods called `replicas` and makes
+
+    sure that they keep running, for example when a node fails or something
+
+    inside of a pod, that is, in one of its containers goes wrong.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's create an [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/rcs/rc.yaml)
+
+    that supervises a single replica of a pod:
+  ja: __COPY__
+---
+texts:
+  en: "You can see the RC and the pod it looks after like so:"
+  ja: __COPY__
+---
+texts:
+  en: "Note two things here:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    the supervised pod got a random name assigned
+
+    (`rcex-qrv8j`)
+  ja: __COPY__
+---
+texts:
+  en: the way the RC keeps track of its pods is via the label, here `app=sise`
+  ja: __COPY__
+---
+texts:
+  en: "To scale up, that is, to increase the number of replicas, do:"
+  ja: __COPY__
+---
+texts:
+  en: "Finally, to get rid of the RC and the pods it is supervising, use:"
+  ja: __COPY__
+---
+texts:
+  en: Note that, going forward, the RCs are called [replica sets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (RS), supporting set-based selectors. The RS are already in use in the context of [deployments](/deployments/).
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/labels) | [Next](/deployments)"
+  ja: __COPY__

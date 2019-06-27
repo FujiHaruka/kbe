@@ -1,0 +1,82 @@
+texts:
+  en: >-
+    +++
+
+    title = "Namespaces"
+
+    subtitle = "Kubernetes namespaces by example"
+
+    date = "2019-02-27"
+
+    url = "/ns/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Namespaces provide for a scope of Kubernetes resource, carving up your cluster in smaller units. You can think of it
+
+    as a workspace you're sharing with other users. Many resources such as pods and
+
+    services are namespaced, while some, for example, nodes are not namespaced (but cluster-wide). As a developer you'd usually use an assigned namespace, however admins may wish to manage them, for example to set up access control or resource quotas.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's list all namespaces (note that the output will depend on the environment
+
+    you're using, I'm using [Minishift](/diy/) here):
+  ja: __COPY__
+---
+texts:
+  en: "You can learn more about a namespace using the `describe` verb, for example:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's now create a new [namespace](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/ns.yaml)
+
+    called `test` now:
+  ja: __COPY__
+---
+texts:
+  en: Alternatively, we can could have created the namespace using the `kubectl create namespace test` command.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    To launch a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/pod.yaml) in
+
+    the newly created namespace `test`, do:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Note that using above method the namespace becomes a runtime property, that is,
+
+    you can deploy the same pod or service, etc. into multiple
+
+    namespaces (for example: `dev` and `prod`). Hard-coding the
+
+    namespace directly in the `metadata` section like shown in the following is possible but causes less flexibility when deploying your apps:
+  ja: __COPY__
+---
+texts:
+  en: "To list namespaced objects such as our pod `podintest`, run the following command:"
+  ja: __COPY__
+---
+texts:
+  en: "You can remove the namespace (and everything inside) with:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    If you're an admin, you might want to check out the [docs](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)
+
+    for more info how to handle namespaces.
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/envs) | [Next](/volumes)"
+  ja: __COPY__

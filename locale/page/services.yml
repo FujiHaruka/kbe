@@ -1,0 +1,118 @@
+texts:
+  en: >-
+    +++
+
+    title = "Services"
+
+    subtitle = "Kubernetes services by example"
+
+    date = "2019-02-27"
+
+    url = "/services/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: >-
+    A service is an abstraction for pods, providing a stable, so called virtual IP (VIP) address. While pods may come and go and with it their IP addresses, a service allows clients to reliably connect to the containers running in the pod using the VIP. The `virtual` in VIP means it is not an actual IP address connected to a network interface, but its purpose is purely to forward traffic to one or more pods. Keeping the mapping between the VIP and the
+
+    pods up-to-date is the job of [kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/), a process that runs on every node, which queries the API server to learn about
+
+    new services in the cluster.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's create a pod supervised by an [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/rc.yaml)
+
+    and a [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml)
+
+    along with it:
+  ja: __COPY__
+---
+texts:
+  en: "Now we have the supervised pod running:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    You can, from within the cluster, access the pod directly via its
+
+    assigned IP `172.17.0.3`:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This is however, as mentioned above, not advisable since the IPs assigned
+
+    to pods may change. Hence, enter the `simpleservice` we've created:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The service keeps track of the pods it forwards traffic to through the label,
+
+    in our case `app=sise`.
+  ja: __COPY__
+---
+texts:
+  en: "From within the cluster we can now access `simpleservice` like so:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    What makes the VIP `172.30.228.255` forward the traffic to the pod?
+
+    The answer is: [IPtables](https://wiki.centos.org/HowTos/Network/IPTables),
+
+    which is essentially a long list of rules that tells the Linux kernel what to do
+
+    with a certain IP package.
+  ja: __COPY__
+---
+texts:
+  en: "Looking at the rules that concern our service (executed on a cluster node) yields:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Above you can see the four rules that `kube-proxy` has thankfully added to the
+
+    routing table, essentially stating that TCP traffic to `172.30.228.255:80`
+
+    should be forwarded to `172.17.0.3:9876`, which is our pod.
+  ja: __COPY__
+---
+texts:
+  en: "Let’s now add a second pod by scaling up the RC supervising it:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    When we now check the relevant parts of the routing table again we notice
+
+    the addition of a bunch of IPtables rules:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    In above routing table listing we see rules for the newly created pod serving at
+
+    `172.17.0.4:9876` as well as an additional rule:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This causes the traffic to the service being equally split between our two pods
+
+    by invoking the `statistics` module of IPtables.
+  ja: __COPY__
+---
+texts:
+  en: "You can remove all the resources created by doing:"
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/deployments) | [Next](/sd)"
+  ja: __COPY__

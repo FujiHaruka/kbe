@@ -1,0 +1,46 @@
+texts:
+  en: >-
+    +++
+
+    title = "StatefulSet"
+
+    subtitle = "Kubernetes statefulset by example"
+
+    date = "2019-02-15"
+
+    url = "/statefulset/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: "If you have a stateless app you want to use a deployment. However, for a stateful app you might want to use a [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Unlike a deployment, the `StatefulSet` provides certain guarantees about the identity of the pods it is managing (that is, predictable names) and about the startup order. Two more things that are different compared to a deployment: for network communication you need to create a [headless services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) and for persistency the `StatefulSet` manages a [persistent volume](/pv) per pod."
+  ja: __COPY__
+---
+texts:
+  en: "In order to see how this all plays together, we will be using an [educational Kubernetes-native NoSQL datastore](https://blog.openshift.com/kubernetes-statefulset-in-action/). "
+  ja: __COPY__
+---
+texts:
+  en: "Let's start with creating the [stateful app](https://raw.githubusercontent.com/mhausenblas/mehdb/master/app.yaml), that is, the `StatefulSet` along with the persistent volumes and the headless service:"
+  ja: __COPY__
+---
+texts:
+  en: "After a minute or so, you can have a look at all the resources that have been created:"
+  ja: __COPY__
+---
+texts:
+  en: "Now we can check if the stateful app is working properly. To do this, we use the `/status` endpoint of the headless service `mehdb:9876` and since we haven't put any data yet into the datastore, we'd expect that `0` keys are reported:"
+  ja: __COPY__
+---
+texts:
+  en: And indeed we see `0` keys being available, reported above.
+  ja: __COPY__
+---
+texts:
+  en: Note that sometimes a `StatefulSet` is not the best fit for your stateful app. You might be better off defining a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) along with writing a custom controller to have finer-grained control over your workload.
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/jobs) | [Next](/ic)"
+  ja: __COPY__

@@ -1,0 +1,82 @@
+texts:
+  en: "This is a hands-on introduction to Kubernetes. Browse the examples:"
+  ja: __COPY__
+---
+texts:
+  en: "[pods](/pods/)"
+  ja: __COPY__
+---
+texts:
+  en: "[labels](/labels/)"
+  ja: __COPY__
+---
+texts:
+  en: "[deployments](/deployments/)"
+  ja: __COPY__
+---
+texts:
+  en: "[services](/services/)"
+  ja: __COPY__
+---
+texts:
+  en: "[service discovery](/sd/)"
+  ja: __COPY__
+---
+texts:
+  en: "[port forward](/pf/)"
+  ja: __COPY__
+---
+texts:
+  en: "[health checks](/healthz/)"
+  ja: __COPY__
+---
+texts:
+  en: "[environment variables](/envs/)"
+  ja: __COPY__
+---
+texts:
+  en: "[namespaces](/ns/)"
+  ja: __COPY__
+---
+texts:
+  en: "[volumes](/volumes/)"
+  ja: __COPY__
+---
+texts:
+  en: "[persistent volumes](/pv/)"
+  ja: __COPY__
+---
+texts:
+  en: "[secrets](/secrets/)"
+  ja: __COPY__
+---
+texts:
+  en: "[logging](/logging/)"
+  ja: __COPY__
+---
+texts:
+  en: "[jobs](/jobs/)"
+  ja: __COPY__
+---
+texts:
+  en: "[stateful sets](/statefulset/)"
+  ja: __COPY__
+---
+texts:
+  en: "[init containers](/ic/)"
+  ja: __COPY__
+---
+texts:
+  en: "[nodes](/nodes/)"
+  ja: __COPY__
+---
+texts:
+  en: "[API server](/api/)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Want to try it out yourself? You can run all this on Red Hat's distribution of
+
+    Kubernetes, OpenShift. Follow the instructions [here](/diy/) for a local setup or sign up for [openshift.com](https://openshift.com/) for an online environment.
+  ja: __COPY__

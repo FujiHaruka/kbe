@@ -1,0 +1,87 @@
+texts:
+  en: >-
+    +++
+
+    title = "Volumes"
+
+    subtitle = "Kubernetes volumes by example"
+
+    date = "2019-02-27"
+
+    url = "/volumes/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: >-
+    A Kubernetes volume is essentially a directory accessible to all containers
+
+    running in a pod. In contrast to the container-local filesystem, the data in volumes is preserved across container restarts. The medium backing a volume and its contents are determined by the volume type:
+  ja: __COPY__
+---
+texts:
+  en: node-local types such as `emptyDir` or `hostPath`
+  ja: __COPY__
+---
+texts:
+  en: file-sharing types such as `nfs`
+  ja: __COPY__
+---
+texts:
+  en: cloud provider-specific types like `awsElasticBlockStore`, `azureDisk`, or `gcePersistentDisk`
+  ja: __COPY__
+---
+texts:
+  en: distributed file system types, for example `glusterfs` or `cephfs`
+  ja: __COPY__
+---
+texts:
+  en: special-purpose types like `secret`, `gitRepo`
+  ja: __COPY__
+---
+texts:
+  en: A special type of volume is `PersistentVolume`, which we will cover elsewhere.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml)
+
+    with two containers that use an `emptyDir` volume to exchange data:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    We first exec into one of the containers in the pod, `c1`, check the volume mount
+
+    and generate some data:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    When we now exec into `c2`, the second container running in the pod, we can see
+
+    the volume mounted at `/tmp/data` and are able to read the data created in the
+
+    previous step:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Note that in each container you need to decide where to mount the volume and
+
+    that for `emptyDir` you currently can not specify resource consumption limits.
+  ja: __COPY__
+---
+texts:
+  en: "You can remove the pod with:"
+  ja: __COPY__
+---
+texts:
+  en: As already described, this will destroy the shared volume and all its contents.
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/ns) | [Next](/pv)"
+  ja: __COPY__

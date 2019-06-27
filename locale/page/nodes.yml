@@ -1,0 +1,56 @@
+texts:
+  en: >-
+    +++
+
+    title = "Nodes"
+
+    subtitle = "Kubernetes nodes by example"
+
+    date = "2019-02-28"
+
+    url = "/nodes/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: >-
+    In Kubernetes, nodes are the (virtual) machines where your workloads in shape of pods run. As a developer you typically don't deal with nodes directly, however as an admin
+
+    you might want to familiarize yourself with node [operations](https://kubernetes.io/docs/concepts/nodes/node/).
+  ja: __COPY__
+---
+texts:
+  en: >-
+    To list available nodes in your cluster (note that the output will depend on the environment
+
+    you're using, I'm using [Minishift](/diy/)):
+  ja: __COPY__
+---
+texts:
+  en: >-
+    One interesting task, from a developer point of view, is to make Kubernetes
+
+    schedule a pod on a certain node. For this, we first need to label the node
+
+    we want to target:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Now we can create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/nodes/pod.yaml)
+
+    that gets scheduled on the node with the label `shouldrun=here`:
+  ja: __COPY__
+---
+texts:
+  en: "To learn more about a specific node, `192.168.99.100` in our case, do:"
+  ja: __COPY__
+---
+texts:
+  en: Note that there are more sophisticated methods than shown above, such as using affinity, to [assign pods to nodes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) and depending on your use case, you might want to check those out as well.
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/ic) | [Next](/api)"
+  ja: __COPY__

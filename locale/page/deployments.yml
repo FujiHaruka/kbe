@@ -1,0 +1,116 @@
+texts:
+  en: >-
+    +++
+
+    title = "Deployments"
+
+    subtitle = "Kubernetes deployments by example"
+
+    date = "2019-02-27"
+
+    url = "/deployments/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: A deployment is a supervisor for [pods](/pods/), giving you fine-grained control over how and when a new pod version is rolled out as well as rolled back to a previous state.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's create a [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml)
+
+    called `sise-deploy` that supervises two replicas of a pod as well as a replica set:
+  ja: __COPY__
+---
+texts:
+  en: "You can have a look at the deployment, as well as the the replica set and the pods the deployment looks after like so:"
+  ja: __COPY__
+---
+texts:
+  en: Note the naming of the pods and replica set, derived from the deployment name.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    At this point in time the `sise` containers running in the pods are configured
+
+    to return the version `0.9`. Let's verify that from within the cluster (using `kubectl describe`
+
+    first to get the IP of one of the pods):
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's now see what happens if we change that version to `1.0` in an updated
+
+    [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d10.yaml):
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Note that you could have used `kubectl edit deploy/sise-deploy` alternatively to
+
+    achieve the same by manually editing the deployment.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    What we now see is the rollout of two new pods with the updated version `1.0` as well
+
+    as the two old pods with version `0.9` being terminated:
+  ja: __COPY__
+---
+texts:
+  en: "Also, a new replica set has been created by the deployment:"
+  ja: __COPY__
+---
+texts:
+  en: Note that during the deployment you can check the progress using `kubectl rollout status deploy/sise-deploy`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    To verify that if the new `1.0` version is really available, we execute from
+
+    within the cluster (again using `kubectl describe` get the IP of one of the pods):
+  ja: __COPY__
+---
+texts:
+  en: "A history of all deployments is available via:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    If there are problems in the deployment Kubernetes will automatically roll back to
+
+    the previous version, however you can also explicitly roll back to a specific revision,
+
+    as in our case to revision 1 (the original pod version):
+  ja: __COPY__
+---
+texts:
+  en: >-
+    At this point in time we're back at where we started, with two new pods serving
+
+    again version `0.9`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Finally, to clean up, we remove the deployment and with it the replica sets and
+
+    pods it supervises:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    See also the [docs](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
+    for more options on deployments and when they are triggered.
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/labels) | [Next](/services)"
+  ja: __COPY__

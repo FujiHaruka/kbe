@@ -1,0 +1,38 @@
+texts:
+  en: >-
+    +++
+
+    title = "API Server access"
+
+    subtitle = "Kubernetes API Server access by example"
+
+    date = "2019-02-13"
+
+    url = "/api/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: Sometimes it's useful or necessary to directly [access the Kubernetes API server](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/), for exploratory or testing purposes.
+  ja: __COPY__
+---
+texts:
+  en: "In order to do this, one option is to proxy the API to your local environment, using:"
+  ja: __COPY__
+---
+texts:
+  en: "Now you can query the API (in a separate terminal session) like so:"
+  ja: __COPY__
+---
+texts:
+  en: "Alternatively, without proxying, you can use `kubectl` directly as follows to achieve the same:"
+  ja: __COPY__
+---
+texts:
+  en: "Further, if you want to explore the supported API versions and/or resources, you can use the following commands:"
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/nodes)"
+  ja: __COPY__

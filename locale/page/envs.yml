@@ -1,0 +1,72 @@
+texts:
+  en: >-
+    +++
+
+    title = "Environment Variables"
+
+    subtitle = "Kubernetes environment variables by example"
+
+    date = "2019-02-27"
+
+    url = "/envs/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: >-
+    You can set environment variables for containers running in a pod and in
+
+    addition, Kubernetes exposes certain runtime infos via environment variables
+
+    automatically.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Let's launch a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml)
+
+    that we pass an environment variable `SIMPLE_SERVICE_VERSION` with the value `1.0`:
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Now, let's verify from within the cluster if the application running in the pod
+
+    has picked up the environment variable `SIMPLE_SERVICE_VERSION`:
+  ja: __COPY__
+---
+texts:
+  en: 'And indeed it has picked up the user-provided environment variable since the default response would be `"version": "0.5.0"`.'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    You can check what environment variables Kubernetes itself provides automatically
+
+    (from within the cluster, using a dedicated endpoint that the [app](https://github.com/mhausenblas/simpleservice)
+
+    exposes):
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Alternatively, you can also use `kubectl exec` to connect to the container and list the
+
+    environment variables directly, there:
+  ja: __COPY__
+---
+texts:
+  en: "You can destroy the created pod with:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    In addition to the above provided environment variables, you can expose more using
+
+    the [downward API](https://kubernetes.io/docs/user-guide/downward-api/).
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/healthz) | [Next](/ns)"
+  ja: __COPY__

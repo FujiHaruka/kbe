@@ -1,0 +1,42 @@
+texts:
+  en: >-
+    +++
+
+    title = "Port Forward"
+
+    subtitle = "Kubernetes port forward by example"
+
+    date = "2019-02-12"
+
+    url = "/pf/"
+
+    +++
+  ja: __COPY__
+---
+texts:
+  en: In the context of developing apps on Kubernetes it is often useful to quickly access a service from your local environment without exposing it using, for example, a load balancer or an ingress resource. In this case you can use [port forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
+  ja: __COPY__
+---
+texts:
+  en: "Let's create an [app](https://github.com/openshift-evangelists/kbe/blob/master/specs/pf/app.yaml) consisting of a deployment and a service called `simpleservice`, serving on port `80`:"
+  ja: __COPY__
+---
+texts:
+  en: "Let's say want to access the `simpleservice` service from the local environment, say, your laptop, on port `8080`. So we forward the traffic as follows:"
+  ja: __COPY__
+---
+texts:
+  en: We can see from above that the traffic gets eventually routed through the service to the pod serving on port `9876`.
+  ja: __COPY__
+---
+texts:
+  en: "Now we can invoke the service locally like so (using a separate terminal session):"
+  ja: __COPY__
+---
+texts:
+  en: Remember that port forwarding is not meant for production traffic but for development and experimentation.
+  ja: __COPY__
+---
+texts:
+  en: "[Previous](/sd) | [Next](/healthz)"
+  ja: __COPY__
