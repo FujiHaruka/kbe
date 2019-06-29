@@ -18,45 +18,45 @@ texts:
     A Kubernetes volume is essentially a directory accessible to all containers
 
     running in a pod. In contrast to the container-local filesystem, the data in volumes is preserved across container restarts. The medium backing a volume and its contents are determined by the volume type:
-  ja: __COPY__
+  ja: Kubernetes の volume は大雑把にいうと pod 内で実行中のすべてのコンテナからアクセス可能なディレクトリです。コンテナ内のファイルシステムとは対照的に、volume 内のデータはコンテナが再起動しても保持されます。volume を裏付ける媒体と volume の内容は volume タイプによって決定されます。
 ---
 texts:
   en: node-local types such as `emptyDir` or `hostPath`
-  ja: __COPY__
+  ja: node 内で有効なもの (`emptyDir`、`hostPath` など)
 ---
 texts:
   en: file-sharing types such as `nfs`
-  ja: __COPY__
+  ja: ファイル共有 (`nfs` など)
 ---
 texts:
   en: cloud provider-specific types like `awsElasticBlockStore`, `azureDisk`, or `gcePersistentDisk`
-  ja: __COPY__
+  ja: クラウドプロバイダ特有のもの (`awsElasticBlockStore`、`azureDisk`、`gcePersistentDisk` など)
 ---
 texts:
   en: distributed file system types, for example `glusterfs` or `cephfs`
-  ja: __COPY__
+  ja: 分散ファイルシステム (たとえば `glusterfs`、`cephfs`)
 ---
 texts:
   en: special-purpose types like `secret`, `gitRepo`
-  ja: __COPY__
+  ja: 特別な用途で使うもの (`secret`、`gitRepo` など)
 ---
 texts:
   en: A special type of volume is `PersistentVolume`, which we will cover elsewhere.
-  ja: __COPY__
+  ja: 特殊な種類の volume として `PersistentVolume` がありますが、別の箇所で取り扱います。
 ---
 texts:
   en: >-
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml)
 
     with two containers that use an `emptyDir` volume to exchange data:
-  ja: __COPY__
+  ja: [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作りましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。
 ---
 texts:
   en: >-
     We first exec into one of the containers in the pod, `c1`, check the volume mount
 
     and generate some data:
-  ja: __COPY__
+  ja: まず、pod 内のコンテナの一つ `c1` に exec を実行し、volume のマウントを確認し、データを生成しておきます。
 ---
 texts:
   en: >-
@@ -65,23 +65,23 @@ texts:
     the volume mounted at `/tmp/data` and are able to read the data created in the
 
     previous step:
-  ja: __COPY__
+  ja: 次に、pod 内で実行中の二つ目のコンテナ `c2` に exec を実行すると、`/tmp/data` に volume がマウントされ、前のステップで作成されたデータが読み込めることがわかります。
 ---
 texts:
   en: >-
     Note that in each container you need to decide where to mount the volume and
 
     that for `emptyDir` you currently can not specify resource consumption limits.
-  ja: __COPY__
+  ja: 留意点として、各コンテナのどこに volume をマウントするかを決める必要があり、また `emptyDir` では現在リソースの消費制限を設けることはできません。
 ---
 texts:
   en: "You can remove the pod with:"
-  ja: __COPY__
+  ja: pod を削除するには以下のようにします。
 ---
 texts:
   en: As already described, this will destroy the shared volume and all its contents.
-  ja: __COPY__
+  ja: すでに述べたように、これは共有 volume とその内容はすべて削除されます。
 ---
 texts:
   en: "[Previous](/ns) | [Next](/pv)"
-  ja: __COPY__
+  ja: "[前](/ns) | [次](/pv)"
