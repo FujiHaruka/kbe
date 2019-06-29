@@ -24,7 +24,7 @@ texts:
     by the [kubelet](https://kubernetes.io/docs/admin/kubelet/) to determine when to
 
     restart a container (for `livenessProbe`) and used by services and deployments to determine if a pod should receive traffic (for `readinessProbe`).
-  ja: __COPY__
+  ja: pod 内のコンテナが正常でトラフィックの処理を受け付ける状態にあるかどうかを確認するために、Kubernetes はさまざまなヘルスチェック機構を提供しています。ヘルスチェックは Kubernetes で **probe** と呼ばれます。[kubelet](https://kubernetes.io/docs/admin/kubelet/) が実行する `livenessProbe` はいつコンテナを再起動するかを決定し、service と deployment が使用する `readinessProbe` は pod がトラフィックを受け取るべきかどうかを決定します。
 ---
 texts:
   en: >-
@@ -33,26 +33,26 @@ texts:
     of the application developer to expose a URL that the kubelet can
 
     use to determine if the container is healthy (and potentially ready).
-  ja: __COPY__
+  ja: ここでは次のように HTTP ヘルスチェックをよく見ることにしましょう。留意点として、コンテナが正常かどうか (そして潜在的に利用できるかどうか) を判断するために kubelet が使用する URL を公開しておくのは、アプリケーション開発者の責任です。
 ---
 texts:
   en: >-
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/pod.yaml)
 
     that exposes an endpoint `/health`, responding with a HTTP `200` status code:
-  ja: __COPY__
+  ja: [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/pod.yaml) を作成しましょう。これはエンドポイント `/health` を公開していて、HTTP ステータスコード `200` を返します。
 ---
 texts:
   en: "In the pod specification we've defined the following:"
-  ja: __COPY__
+  ja: pod の仕様定義の中で、次のように定義しました。
 ---
 texts:
   en: "Above means that Kubernetes will start checking the `/health` endpoint, after initially waiting 2 seconds, every 5 seconds. "
-  ja: __COPY__
+  ja: 上記の意味を説明すると、Kubernetes は `/health` エンドポイントのチェックを最初に 2 秒待ってから 5 秒ごとに開始するということです。
 ---
 texts:
   en: "If we now look at the pod we can see that it is considered healthy:"
-  ja: __COPY__
+  ja: pod を見てみると、正常状態と診断されていることがわかります。
 ---
 texts:
   en: >-
@@ -61,22 +61,22 @@ texts:
     that is, a pod that has a container that randomly (in the time range 1 to 4 sec)
 
     does not return a 200 code:
-  ja: __COPY__
+  ja: では、[bad pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/badpod.yaml) を起動します。この pod は、ランダムに (1秒間から4秒間) ステータスコード 200 を返さないコンテナをもっています。
 ---
 texts:
   en: "Looking at the events of the bad pod, we can see that the health check failed:"
-  ja: __COPY__
+  ja: bad pod のイベントを見てみると、ヘルスチェックが失敗したことがわかります。
 ---
 texts:
   en: "This can also be verified as follows:"
-  ja: __COPY__
+  ja: これは以下のようにも確認できます。
 ---
 texts:
   en: >-
     From above you can see that the `badpod` had already been re-launched 4 times,
 
     since the health check failed.
-  ja: __COPY__
+  ja: 上記から、`badpod` はすでに 4 回再起動したことがわかります。ヘルスチェックが失敗したからです。
 ---
 texts:
   en: >-
@@ -91,33 +91,33 @@ texts:
     to initialize some tables. In this case you want to signal when the container is
 
     ready to serve traffic.
-  ja: __COPY__
+  ja: `livenessProbe` に加えて `readinessProbe` も定義できます。これは同じやり方で設定できますが、ユースケースとセマンティクスは異なります。`readinessProbe` は pod 内のコンテナの起動段階をチェックするのに使います。S3 のような外部ストレージからデータをロードするコンテナや、テーブルの初期化が必要なデータベースを想像してみてください。こういうときに、コンテナがトラフィックを処理する準備ができたら知らせてほしくなります。
 ---
 texts:
   en: >-
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/ready.yaml)
 
     with a `readinessProbe` that kicks in after 10 seconds:
-  ja: __COPY__
+  ja: `readinessProbe` が 10 秒後に開始する [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/ready.yaml) を作成しましょう。
 ---
 texts:
   en: >-
     Looking at the events of the pod, we can see that, eventually, the pod is ready
 
     to serve traffic:
-  ja: __COPY__
+  ja: pod のイベントを見ると、しばらくあとで pod がトラフィックを処理する準備ができたことがわかります。
 ---
 texts:
   en: "You can remove all the created pods with:"
-  ja: __COPY__
+  ja: 作成した pod をすべて削除するには以下のようにします。
 ---
 texts:
   en: >-
     Learn more about configuring probes, including TCP and command probes, via the
 
     [docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
-  ja: __COPY__
+  ja: TCP や command probe など、probe の設定についてさらに学ぶには [docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) を参照してください。
 ---
 texts:
   en: "[Previous](/sd) | [Next](/envs)"
-  ja: __COPY__
+  ja: "[前](/sd) | [次](/envs)"
