@@ -20,7 +20,7 @@ texts:
     pods up-to-date is the job of [kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/), a process that runs on every node, which queries the API server to learn about
 
     new services in the cluster.
-  ja: __COPY__
+  ja: service は pod の抽象化で、いわゆる仮想 IP (VIP) アドレスを安定して提供します。pod は変更があるとそれに伴う IP アドレスも変更される可能性がありますが、service は VIP を使うため pod の中で実行するコンテナにクライアントから確実に接続できます。VIP の `virtual` とはどういうことかというと、ネットワークインターフェイスに結びついた実際の IP アドレスではありません。その目的は、単純に一つ以上の pod にトラフィックを転送することです。VIP と pod のマッピングを最新状態で維持するのは、[kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/) の仕事です。kube-proxy は各 node 上で実行されるプロセスで、クラスタ内の新しい service について知るために API サーバーに問い合わせます。
 ---
 texts:
   en: >-
@@ -29,36 +29,36 @@ texts:
     and a [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml)
 
     along with it:
-  ja: __COPY__
+  ja: [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/rc.yaml) と [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml) によって管理された pod を作成してみましょう。
 ---
 texts:
   en: "Now we have the supervised pod running:"
-  ja: __COPY__
+  ja: 管理されている pod が実行されているのを確認できます。
 ---
 texts:
   en: >-
     You can, from within the cluster, access the pod directly via its
 
     assigned IP `172.17.0.3`:
-  ja: __COPY__
+  ja: pod に割り当てられた IP `172.17.0.3` を通じてクラスタの内部から pod に直接アクセスできます。
 ---
 texts:
   en: >-
     This is however, as mentioned above, not advisable since the IPs assigned
 
     to pods may change. Hence, enter the `simpleservice` we've created:
-  ja: __COPY__
+  ja: ただし、これは前述のように pod に割り当てられた IP アドレスが変わる可能性があるためお勧めできません。そこで、作成した `simpleservice` に入ります。
 ---
 texts:
   en: >-
     The service keeps track of the pods it forwards traffic to through the label,
 
     in our case `app=sise`.
-  ja: __COPY__
+  ja: service は label を通じて、トラフィックの転送先となる pod を追跡します。私たちの例では、label は `app=sise` です。
 ---
 texts:
   en: "From within the cluster we can now access `simpleservice` like so:"
-  ja: __COPY__
+  ja: クラスタの内部から `simpleservice` にアクセスできます。
 ---
 texts:
   en: >-
@@ -69,11 +69,11 @@ texts:
     which is essentially a long list of rules that tells the Linux kernel what to do
 
     with a certain IP package.
-  ja: __COPY__
+  ja: どうやって VIP `172.30.228.255` のトラフィックを pod に転送させているのでしょうか。答えは [IPtables](https://wiki.centos.org/HowTos/Network/IPTables) です。IPtables は簡単にいうと Linux カーネルに特定の IP パッケージをどう処理するかを教える長大なリストです。
 ---
 texts:
   en: "Looking at the rules that concern our service (executed on a cluster node) yields:"
-  ja: __COPY__
+  ja: 私たちのサービスに関するルールを見ます。(クラスタノード上で実行します)
 ---
 texts:
   en: >-
@@ -82,37 +82,37 @@ texts:
     routing table, essentially stating that TCP traffic to `172.30.228.255:80`
 
     should be forwarded to `172.17.0.3:9876`, which is our pod.
-  ja: __COPY__
+  ja: 上を見ると、ありがたいことに `kube-proxy` がルーティングテーブルに 4 つのルールを追加したことがわかります。そのルールが述べていることをかいつまむと、`172.30.228.255:80` に来る TCP トラフィックを `172.17.0.3:9876` に、つまり私たちの pod に転送しなさいということです。
 ---
 texts:
   en: "Let’s now add a second pod by scaling up the RC supervising it:"
-  ja: __COPY__
+  ja: 次に、pod を管理している RC をスケールアップして、二番目の pod を追加しましょう。
 ---
 texts:
   en: >-
     When we now check the relevant parts of the routing table again we notice
 
     the addition of a bunch of IPtables rules:
-  ja: __COPY__
+  ja: ルーティングテーブルの関連する部分をもう一度確認すると、IPtables のルールが追加されているのがわかります。
 ---
 texts:
   en: >-
     In above routing table listing we see rules for the newly created pod serving at
 
     `172.17.0.4:9876` as well as an additional rule:
-  ja: __COPY__
+  ja: 上のルーティングテーブルのリストをみると、新しく作られた pod は `172.17.0.4:9876` をサーブしていて、その pod 用のルールが追加されたのがわかりますが、他にも一つルーツが追加されています。
 ---
 texts:
   en: >-
     This causes the traffic to the service being equally split between our two pods
 
     by invoking the `statistics` module of IPtables.
-  ja: __COPY__
+  ja: このルールによって、IPtables の `statistics` モジュールが呼び出され、service に来るトラフィックが 2 つの pod に平等に分配されます。
 ---
 texts:
   en: "You can remove all the resources created by doing:"
-  ja: __COPY__
+  ja: すべてのリソースを削除するには以下を実行します。
 ---
 texts:
   en: "[Previous](/deployments) | [Next](/sd)"
-  ja: __COPY__
+  ja: "[前](/deployments) | [次](/sd)"
