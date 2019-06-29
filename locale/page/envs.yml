@@ -20,25 +20,25 @@ texts:
     addition, Kubernetes exposes certain runtime infos via environment variables
 
     automatically.
-  ja: __COPY__
+  ja: pod 内で実行するコンテナに環境変数を設定できます。加えて、Kuberenetes は環境変数を通じて自動的にランタイム情報を公開します。
 ---
 texts:
   en: >-
     Let's launch a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml)
 
     that we pass an environment variable `SIMPLE_SERVICE_VERSION` with the value `1.0`:
-  ja: __COPY__
+  ja: [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml) を起動しましょう。環境変数 `SIMPLE_SERVICE_VERSION` を値 `1.0` で渡しています。
 ---
 texts:
   en: >-
     Now, let's verify from within the cluster if the application running in the pod
 
     has picked up the environment variable `SIMPLE_SERVICE_VERSION`:
-  ja: __COPY__
+  ja: では、pod 内で実行中のアプリケーションが環境変数 `SIMPLE_SERVICE_VERSION` を採用したかどうかをクラスタ内部から確認しましょう。
 ---
 texts:
   en: 'And indeed it has picked up the user-provided environment variable since the default response would be `"version": "0.5.0"`.'
-  ja: __COPY__
+  ja: "デフォルトのレスポンスは `\"version\": \"0.5.0\"` なので、ユーザー設定の環境変数を実際に採用したことがわかります。"
 ---
 texts:
   en: >-
@@ -47,26 +47,26 @@ texts:
     (from within the cluster, using a dedicated endpoint that the [app](https://github.com/mhausenblas/simpleservice)
 
     exposes):
-  ja: __COPY__
+  ja: Kubernetes 自身がどのような環境変数を自動的に供給しているかを確認できます。(クラスタ内部からは [app](https://github.com/mhausenblas/simpleservice) が公開している専用のエンドポイントを使います)
 ---
 texts:
   en: >-
     Alternatively, you can also use `kubectl exec` to connect to the container and list the
 
     environment variables directly, there:
-  ja: __COPY__
+  ja: あるいは、kubectl exec を使用してコンテナに接続し、環境変数を直接リスト表示することもできます。
 ---
 texts:
   en: "You can destroy the created pod with:"
-  ja: __COPY__
+  ja: 作成した pod を削除するには以下のようにします。
 ---
 texts:
   en: >-
     In addition to the above provided environment variables, you can expose more using
 
     the [downward API](https://kubernetes.io/docs/user-guide/downward-api/).
-  ja: __COPY__
+  ja: 上で供給された環境変数以外にも、[downward API](https://kubernetes.io/docs/user-guide/downward-api/) を使って公開できます。
 ---
 texts:
   en: "[Previous](/healthz) | [Next](/ns)"
-  ja: __COPY__
+  ja: "[前](/healthz) | [次](/ns)"
