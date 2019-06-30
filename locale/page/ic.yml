@@ -15,20 +15,20 @@ texts:
 ---
 texts:
   en: "It's sometimes necessary to prepare a container running in a pod. For example, you might want to wait for a service being available, want to configure things at runtime, or init some data in a database. In all of these cases, [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) are useful. Note that Kubernetes will execute all init containers (and they must all exit successfully) before the main container(s) are executed. "
-  ja: __COPY__
+  ja: pod 内で実行するコンテナに準備が必要なことがあります。たとえば、サービスが利用可能になるのを待つ、実行時に何かを設定する、データベースのデータを初期化するといったことです。こういう場合に [init コンテナ](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) が役立ちます。ちなみに、Kubernetes はすべての init コンテナを実行してから (それらが正常に終了してから)、メインのコンテナを実行します。
 ---
 texts:
   en: "So let's create an [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/ic/deploy.yaml) consisting of an init container that writes a message into a file at `/ic/this` and the main (long-running) container reading out this file, then:"
-  ja: __COPY__
+  ja: では [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/ic/deploy.yaml) を作成しましょう。この中で init コンテナが `/ic/this` ファイルをメッセージを書き込み、メインの (実行状態を持続する) コンテナがこのファイルを読み込みます。
 ---
 texts:
   en: "Now we can check the output of the main container:"
-  ja: __COPY__
+  ja: メインのコンテナの出力を確認しましょう。
 ---
 texts:
   en: "If you want to learn more about init containers and related topics, check out the blog post [Kubernetes: A Pod’s Life](https://blog.openshift.com/kubernetes-pods-life/)."
-  ja: __COPY__
+  ja: "init コンテナとその関連トピックをさらに学ぶには、ブログ記事 [Kubernetes: A Pod’s Life](https://blog.openshift.com/kubernetes-pods-life/) を読んでください。"
 ---
 texts:
   en: "[Previous](/statefulset) | [Next](/nodes)"
-  ja: __COPY__
+  ja: "[前](/statefulset) | [次](/nodes)"
