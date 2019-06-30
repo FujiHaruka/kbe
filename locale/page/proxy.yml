@@ -15,24 +15,24 @@ texts:
 ---
 texts:
   en: Sometimes it's useful or necessary to directly [access the Kubernetes API server](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/), for exploratory or testing purposes.
-  ja: __COPY__
+  ja: 調査やテストのために [Kubernetes API サーバー](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/)に直接アクセスできると便利な場合や、それが必要な場合があります。
 ---
 texts:
   en: "In order to do this, one option is to proxy the API to your local environment, using:"
-  ja: __COPY__
+  ja: そうするための一つの選択肢が、ローカル環境に API をプロキシすることです。以下のようにします。
 ---
 texts:
   en: "Now you can query the API (in a separate terminal session) like so:"
-  ja: __COPY__
+  ja: API にクエリを送るには (別のターミナルセッションで) 以下のようにします。
 ---
 texts:
   en: "Alternatively, without proxying, you can use `kubectl` directly as follows to achieve the same:"
-  ja: __COPY__
+  ja: あるいは、プロキシせずに以下のように直接 `kubectl` を使っても同じことができます。
 ---
 texts:
   en: "Further, if you want to explore the supported API versions and/or resources, you can use the following commands:"
-  ja: __COPY__
+  ja: また、サポートしている API のバージョンやリソースを調べたければ、以下のコマンドが使えます。
 ---
 texts:
   en: "[Previous](/nodes)"
-  ja: __COPY__
+  ja: "[前](/nodes)"
