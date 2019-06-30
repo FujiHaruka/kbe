@@ -18,32 +18,32 @@ texts:
     If you want to try out the examples here yourself, you can use the same setup
 
     I've got locally running on my machine:
-  ja: __COPY__
+  ja: ご自分でサンプルを実行してみたい場合、私がローカルマシン上で実行したのと同じセットアップが利用できます。
 ---
 texts:
   en: Install [Minishift](https://docs.okd.io/latest/minishift/getting-started/installing.html)
-  ja: __COPY__
+  ja: "[Minishift](https://docs.okd.io/latest/minishift/getting-started/installing.html) をインストールします"
 ---
 texts:
   en: Run `minishift start`
-  ja: __COPY__
+  ja: `minishift start` を実行します
 ---
 texts:
   en: Configure OpenShift Client binary (`oc`) by running `eval $(minishift oc-env)`
-  ja: __COPY__
+  ja: OpenShift Client バイナリ (`oc`) を `eval $(minishift oc-env)` を実行することで設定します
 ---
 texts:
   en: Log in using `oc login -u system:admin` with password `admin`
-  ja: __COPY__
+  ja: `oc login -u system:admin` でログインします。パスワードは `admin` です
 ---
 texts:
   en: "Create a symlink from `oc` like so:  `ln -s $(which oc) /usr/local/bin/kubectl`"
-  ja: __COPY__
+  ja: `oc` から次のようにシンボリックリンクを作成します。`ln -s $(which oc) /usr/local/bin/kubectl`
 ---
 texts:
   en: "All examples have been carried out with Minishift version [v1.32.0](https://github.com/minishift/minishift/releases/tag/v1.32.0):"
-  ja: __COPY__
+  ja: すべてのサンプルは Minishift のバージョン [v1.32.0](https://github.com/minishift/minishift/releases/tag/v1.32.0) で実行されました。
 ---
 texts:
   en: Alternatively, you can try out the Developer Preview of [OpenShift 4](https://try.openshift.com/) using the examples here.
-  ja: __COPY__
+  ja: あるいは、ここのサンプルを使って [OpenShift 4](https://try.openshift.com/) の開発者プレビューを試すこともできます。
