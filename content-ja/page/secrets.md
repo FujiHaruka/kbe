@@ -13,7 +13,7 @@ url = "/secrets/"
 - 1 つの secret のサイズは上限 1 MB です
 - API サーバーは secret を etcd 内に平文で保存します
 
-`apiKey` という secret を作成しましょう。これは (発行済みの) API キーを保持します。
+`apiKey` という名前の secret を作成しましょう。これは (発行済みの) API キーを保持します。
 
 ```bash
 $ echo -n "A19fh68B001j" > ./apikey.txt
@@ -41,7 +41,7 @@ apikey.txt:     12 bytes
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/secrets/pod.yaml
 ```
 
-コンテナに exec すると、secret が `/tmp/apikey` にマウントされているのがわかります。
+コンテナに exec を実行すると、secret が `/tmp/apikey` にマウントされているのがわかります。
 
 ```
 $ kubectl exec -it consumesec -c shell -- bash
@@ -51,7 +51,7 @@ tmpfs on /tmp/apikey type tmpfs (ro,relatime)
 A19fh68B001j
 ```
 
-サービスアカウント用には、Kubernetes は API にアクセスするための認証情報を含む secret を自動的に作成し、この種の secret を使うために pod を修正してくれます。
+サービスアカウント用には、Kubernetes は API にアクセスするための認証情報を含む secret を自動的に作成し、このタイプの secret を使うために pod を修正してくれます。
 
 pod と secret を削除するには以下を実行します。
 

@@ -7,7 +7,7 @@ url = "/pf/"
 
 Kubernetes 上でアプリを開発するときに、ローカル環境から service に手軽にアクセスできると便利です。わざわざロードバランサや ingress リソースを使ってサービスを公開するのは煩雑ですから。そういうときに使えるのが [port forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) です。
 
-deployment と `simpleservice` という service から構成され、ポート `80` でサービス提供する [app](https://github.com/openshift-evangelists/kbe/blob/master/specs/pf/app.yaml) を作成しましょう。
+[app](https://github.com/openshift-evangelists/kbe/blob/master/specs/pf/app.yaml) を作成しましょう。これは deployment と、 `simpleservice` という名前の service から構成され、ポート `80` でサービス提供します。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/pf/app.yaml
@@ -30,6 +30,6 @@ $ curl localhost:8080/info
 {"host": "localhost:8080", "version": "0.5.0", "from": "127.0.0.1"}
 ```
 
-ポートフォワーディングは本番運用のトラフィックに使うべきではなく、開発用また実験用であることを覚えておいてくだあし。
+ポートフォワーディングは本番運用のトラフィックに使うべきではなく、開発用また実験用であることを覚えておいてください。
 
 [前へ](/sd) | [次へ](/healthz)

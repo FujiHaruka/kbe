@@ -5,7 +5,7 @@ date = "2019-02-27"
 url = "/services/"
 +++
 
-service は pod の抽象化で、いわゆる仮想 IP (VIP) アドレスを安定して提供します。pod は変更があるとそれに伴う IP アドレスも変更される可能性がありますが、service は VIP を使うため pod の中で実行するコンテナにクライアントから確実に接続できます。VIP の `virtual` とはどういうことかというと、ネットワークインターフェイスに結びついた実際の IP アドレスではありません。その目的は、単純に一つ以上の pod にトラフィックを転送することです。VIP と pod のマッピングを最新状態で維持するのは、[kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/) の仕事です。kube-proxy は各 node 上で実行されるプロセスで、クラスタ内の新しい service について知るために API サーバーに問い合わせます。
+service は pod の抽象化で、いわゆる仮想 IP (VIP) アドレスを安定して提供します。pod に変更があるとそれに付随する IP アドレスも変更される可能性がありますが、service は VIP を使うため pod 内で実行するコンテナにクライアントから確実に接続できます。VIP の `virtual` とはどういうことかというと、ネットワークインターフェイスに結びついた実際の IP アドレスではないということです。その目的は単純で、一つ以上の pod にトラフィックを転送することです。VIP と pod のマッピングを最新状態で維持するのは、[kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/) の役目です。kube-proxy とは各 node 上で実行されるプロセスで、クラスタ内の新しい service について知るために API サーバーに問い合わせます。
 
 [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/rc.yaml) と [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml) によって管理された pod を作成してみましょう。
 
@@ -15,7 +15,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/m
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/services/svc.yaml
 ```
 
-管理されている pod が実行されているのを確認できます。
+管理対象の pod が実行されているのを確認できます。
 
 ```bash
 $ kubectl get pods -l app=sise
@@ -36,14 +36,14 @@ Containers:
 ...
 ```
 
-pod に割り当てられた IP `172.17.0.3` を通じてクラスタの内部から pod に直接アクセスできます。
+pod に割り当てられた IP `172.17.0.3` を通じて、クラスタ内部から pod に直接アクセスできます。
 
 ```bash
 [cluster] $ curl 172.17.0.3:9876/info
 {"host": "172.17.0.3:9876", "version": "0.5.0", "from": "172.17.0.1"}
 ```
 
-ただし、これは前述のように pod に割り当てられた IP アドレスが変わる可能性があるためお勧めできません。そこで、作成した `simpleservice` に入ります。
+ただし、これは前述のように pod に割り当てられた IP アドレスが変更される可能性があるためお勧めできません。そこで、作成した `simpleservice` に入ります。
 
 ```bash
 $ kubectl get svc
@@ -63,9 +63,9 @@ Session Affinity:       None
 No events.
 ```
 
-service は label を通じて、トラフィックの転送先となる pod を追跡します。私たちの例では、label は `app=sise` です。
+service は label を通じてトラフィックの転送先となる pod を追跡します。私たちの例で、label は `app=sise` です。
 
-クラスタの内部から `simpleservice` にアクセスできます。
+クラスタ内部から `simpleservice` にアクセスできます。
 
 ```bash
 [cluster] $ curl 172.30.228.255:80/info
@@ -74,7 +74,7 @@ service は label を通じて、トラフィックの転送先となる pod を
 
 どうやって VIP `172.30.228.255` のトラフィックを pod に転送させているのでしょうか。答えは [IPtables](https://wiki.centos.org/HowTos/Network/IPTables) です。IPtables は簡単にいうと Linux カーネルに特定の IP パッケージをどう処理するかを教える長大なリストです。
 
-私たちのサービスに関するルールを見ます。(クラスタノード上で実行します)
+私たちの service に関するルールを見ます。(クラスタノード上で実行します)
 
 ```bash
 [cluster] $ sudo iptables-save | grep simpleservice
@@ -111,7 +111,7 @@ rcsise-nv8zm   1/1       Running   0          5s
 -A KUBE-SVC-EZC6WLOVQADP4IAW -m comment --comment "default/simpleservice:" -j KUBE-SEP-PXYYII6AHMUWKLYX
 ```
 
-上のルーティングテーブルのリストをみると、新しく作られた pod は `172.17.0.4:9876` をサーブしていて、その pod 用のルールが追加されたのがわかりますが、他にも一つルーツが追加されています。
+上のルーティングテーブルのリストをみると、新しく作られた pod は `172.17.0.4:9876` でサービス提供していて、その pod 用のルールが追加されたのがわかりますが、他にもう一つルールが追加されています。
 
 ```
 -A KUBE-SVC-EZC6WLOVQADP4IAW -m comment --comment "default/simpleservice:" -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-4SQFZS32ZVMTQEZV

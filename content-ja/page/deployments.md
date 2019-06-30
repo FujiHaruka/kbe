@@ -5,9 +5,9 @@ date = "2019-02-27"
 url = "/deployments/"
 +++
 
-deployment は [pod](/pods/) のスーパーバイザです。deployment を使うと、新バージョンの pod をいつどのようにロールアウトし、また以前の状態にロールバックするかをきめ細かく制御できます。
+deployment は [pod](/pods/) を管理します。deployment を使うと、新しいバージョンの pod をいつどのようにロールアウトするか、またいつどのように以前の状態にロールバックするかをきめ細かく制御できます。
 
-[deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml) を作りましょう。名前は `sise-deploy` で、2 つの pod の replica と 1 つの replica set を管理します。
+`sise-deploy` という名前の [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml) を作成しましょう。これは 2 つの pod の replica と 1 つの replica set を管理します。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/deployments/d09.yaml
@@ -30,25 +30,25 @@ sise-deploy-3513442901-cndsx   1/1       Running   0          25s
 sise-deploy-3513442901-sn74v   1/1       Running   0          25s
 ```
 
-pod と replica set の命名は deployment の名前を元にしています。
+なお、pod と replica set の命名は deployment の名前から生成されています。
 
-この時点で、pod の中で実行されている `sise` コンテナはバージョン `0.9` を返すように設定されています。クラスタの内部から確認してみましょう。(pod の IP を取得するには `kubectl describe` を使います)
+この時点で、pod の中で実行されている `sise` コンテナはバージョン `0.9` を返すように設定されています。クラスタ内部から確認してみましょう。(pod の IP を取得するには `kubectl describe` を使います)
 
 ```bash
 [cluster] $ curl 172.17.0.3:9876/info
 {"host": "172.17.0.3:9876", "version": "0.9", "from": "172.17.0.1"}
 ```
 
-ではバージョンを `1.0` に変えるとどうなるか確認しましょう。[deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d10.yaml) を更新します。
+では、バージョンを `1.0` に変えるとどうなるか確認しましょう。[deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d10.yaml) を更新します。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/deployments/d10.yaml
 deployment "sise-deploy" configured
 ```
 
-手動で deployment を編集する代わりに `kubectl edit deploy/sise-deploy` を使えることに留意してください。
+なお、手動で deployment を編集する代わりに `kubectl edit deploy/sise-deploy` を使えます。
 
-これでわかりますが、バージョン `1.0` に更新された新しい pod が 2 つロールアウトされ、バージョン `0.9` の古い pod が 2 つ停止しました。
+これで確認できますが、バージョン `1.0` に更新された新しい pod が 2 つロールアウトされ、バージョン `0.9` の古い pod が 2 つ停止しました。
 
 ```bash
 $ kubectl get pods
@@ -59,7 +59,7 @@ sise-deploy-3513442901-cndsx   1/1       Terminating   0          16m
 sise-deploy-3513442901-sn74v   1/1       Terminating   0          16m
 ```
 
-また、新しい replica set が deployment によって作成されました。
+また、新しい replica set が deployment により作成されました。
 
 ```bash
 $ kubectl get rs
@@ -68,9 +68,9 @@ sise-deploy-2958877261   2         2         2         4s
 sise-deploy-3513442901   0         0         0         24m
 ```
 
-deployment 中に進行を確認するには `kubectl rollout status deploy/sise-deploy` が使えます。
+deployment の進行を確認するには `kubectl rollout status deploy/sise-deploy` が使えます。
 
-新しい `1.0` バージョンが本当に利用可能かどうかを確認するために、クラスタの内部から以下を実行します。(再掲。pod の IP を取得するには `kubectl describe` を使います)
+新しい `1.0` バージョンが本当に利用可能かどうかを確認するために、クラスタ内部から以下を実行します。(再掲。pod の IP を取得するには `kubectl describe` を使います)
 
 ```bash
 [cluster] $ curl 172.17.0.5:9876/info
@@ -87,7 +87,7 @@ REVISION        CHANGE-CAUSE
 2               <none>
 ```
 
-deployment に問題があれば、Kubernetes は自動的に前のバージョンにロールバックしますが、特定のリビジョンに明示的にロールバックすることもできます。この例ではリビジョン 1 (元の pod バージョン)にロールバックします。
+deployment に問題があれば、Kubernetes は自動的に前のバージョンにロールバックしますが、特定のリビジョンに明示的にロールバックすることもできます。この例ではリビジョン 1 (最初の pod バージョン) にロールバックしてみます。
 
 ```bash
 $ kubectl rollout undo deploy/sise-deploy --to-revision=1
@@ -105,15 +105,15 @@ sise-deploy-3513442901-ng8fz   1/1       Running   0          1m
 sise-deploy-3513442901-s8q4s   1/1       Running   0          1m
 ```
 
-この時点で最初の状態に戻りました。2 つの新しい pod がまたバージョン `0.9` で実行されています。
+この時点で最初の状態に戻りました。2 つの新しい pod が再びバージョン `0.9` で実行されています。
 
-最後に、クリーンアップするため deployment を削除します。deployment が管理している replica set と pod も一緒に削除されます。
+最後に、クリーンアップのため deployment を削除します。deployment が管理している replica set と pod も一緒に削除されます。
 
 ```bash
 $ kubectl delete deploy sise-deploy
 deployment "sise-deploy" deleted
 ```
 
-deployment の他のオプションと、それがいつトリガーされるかについては、[ドキュメント](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)も参考にしてください。
+deployment の他のオプションと、それがいつトリガーされるかについては[ドキュメント](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)も参考にしてください。
 
 [前へ](/labels) | [次へ](/services)

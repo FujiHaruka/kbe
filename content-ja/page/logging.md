@@ -7,7 +7,7 @@ url = "/logging/"
 
 ロギングは、アプリケーションとクラスタ内部でおよそ何が起きているのかを理解するための一つの選択肢です。Kubernetes の基本的なロギングは、コンテナの出力を利用可能にします。これはデバッグにうってつけのユースケースです。より高度なものでは、[setups](http://some.ops4devs.info/logging/) は node 間を横断するログを扱い、それを中央に保存します。保存場所はクラスタ内部でもよいですが、専用の (クラウド) サービスを通じて保存することもできます。
 
-`logme` という [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml) を作成しましょう。これは `stdout` と `stderr` に書き込むコンテナを実行します。
+`logme` という名前の [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml) を作成しましょう。これは `stdout` と `stderr` に書き込むコンテナを実行します。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/logging/pod.yaml
@@ -36,9 +36,9 @@ Thu Apr 27 11:43:13 UTC 2017
 ...
 ```
 
-なお、上のコマンドで `--since=10s` を指定しなければ、コンテナ起動後から書き込まれたログが全行取得できます。
+なお、上のコマンドで `--since=10s` を指定しない場合、コンテナ起動後から書き込まれたログを全行取得できます。
 
-ライフサイクルをすでに終了した pod についてもログを確認できます。そのために `oneshot` という [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/oneshotpod.yaml) を作成します。これは 9 から 1 までカウントダウンしてから停止します。`-p` オプションを使うと、pod 内のコンテナの以前の (previous) インスタンスについてログを表示できます。
+ライフサイクルを終了した pod についてもログを確認できます。そのために `oneshot` という名前の [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/oneshotpod.yaml) を作成します。これは 9 から 1 までカウントダウンしてから停止します。`-p` オプションを使うと、pod 内にあるコンテナの以前の (previous) インスタンスについてログを表示できます。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/logging/oneshotpod.yaml

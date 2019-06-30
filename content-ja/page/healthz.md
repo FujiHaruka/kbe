@@ -7,7 +7,7 @@ url = "/healthz/"
 
 pod 内のコンテナが正常でトラフィックの処理を受け付ける状態にあるかどうかを確認するために、Kubernetes はさまざまなヘルスチェック機構を提供しています。ヘルスチェックは Kubernetes で **probe** と呼ばれます。[kubelet](https://kubernetes.io/docs/admin/kubelet/) が実行する `livenessProbe` はいつコンテナを再起動するかを決定し、service と deployment が使用する `readinessProbe` は pod がトラフィックを受け取るべきかどうかを決定します。
 
-ここでは次のように HTTP ヘルスチェックをよく見ることにしましょう。留意点として、コンテナが正常かどうか (そして潜在的に利用できるかどうか) を判断するために kubelet が使用する URL を公開しておくのは、アプリケーション開発者の責任です。
+ここでは次のように HTTP ヘルスチェックを題材にしましょう。なお、コンテナが正常かどうか (そして潜在的に利用可能かどうか) を kubelet が判断するための URL を公開しておくのは、アプリケーション開発者の責任です。
 
 [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/pod.yaml) を作成しましょう。これはエンドポイント `/health` を公開していて、HTTP ステータスコード `200` を返します。
 
@@ -15,7 +15,7 @@ pod 内のコンテナが正常でトラフィックの処理を受け付ける�
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/healthz/pod.yaml
 ```
 
-pod の仕様定義の中で、次のように定義しました。
+pod の仕様中で、以下のように定義しました。
 
 ```
 livenessProbe:
@@ -26,7 +26,7 @@ livenessProbe:
     port: 9876
 ```
 
-上記の意味を説明すると、Kubernetes は `/health` エンドポイントのチェックを最初に 2 秒待ってから 5 秒ごとに開始するということです。
+上記の意味を説明すると、Kubernetes は `/health` エンドポイントのチェックを最初に 2 秒待ち、5 秒ごとに開始するということです。
 
 pod を見てみると、正常状態と診断されていることがわかります。
 
@@ -85,7 +85,7 @@ hc                        1/1       Running   0          6m
 
 上記から、`badpod` はすでに 4 回再起動したことがわかります。ヘルスチェックが失敗したからです。
 
-`livenessProbe` に加えて `readinessProbe` も定義できます。これは同じやり方で設定できますが、ユースケースとセマンティクスは異なります。`readinessProbe` は pod 内のコンテナの起動段階をチェックするのに使います。S3 のような外部ストレージからデータをロードするコンテナや、テーブルの初期化が必要なデータベースを想像してみてください。こういうときに、コンテナがトラフィックを処理する準備ができたら知らせてほしくなります。
+`livenessProbe` に加えて `readinessProbe` も定義できます。これは同じやり方で設定できますが、ユースケースと書き方は違っています。`readinessProbe` は pod 内のコンテナの起動段階をチェックするのに使います。S3 のような外部ストレージからデータを読み込むコンテナや、テーブルの初期化が必要なデータベースを想像してみてください。こういうときに、コンテナがトラフィックを処理する準備ができたら知らせてほしくなります。
 
 `readinessProbe` が 10 秒後に開始する [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/ready.yaml) を作成しましょう。
 
@@ -105,12 +105,12 @@ Conditions:                                                                     
   PodScheduled  True
 ...
 ```
-作成した pod をすべて削除するには以下のようにします。
+作成した pod をすべて削除するには以下を実行します。
 
 ```bash
 $ kubectl delete pod/hc pod/ready pod/badpod
 ```
 
-TCP や command probe など、probe の設定についてさらに学ぶには [docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) を参照してください。
+TCP や command probe など、probe の設定についてさらに学ぶには[ドキュメント](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)を参照してください。
 
 [前へ](/sd) | [次へ](/envs)

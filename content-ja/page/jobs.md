@@ -7,7 +7,7 @@ url = "/jobs/"
 
 Kubernetes の [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) はバッチ処理を実行する pod を管理します。ある時間になると実行されるプロセスで、たとえば計算やバックアップ操作を完了するために実行されます。
 
-`countdown` という [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml) を作成しまそふ。これは 9 から 1 にカウントダウンする pod を管理します。
+`countdown` という名前の [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml) を作成しましょう。これは 9 から 1 にカウントダウンする pod を管理します。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/jobs/job.yaml
@@ -25,7 +25,7 @@ NAME                            READY     STATUS      RESTARTS   AGE
 countdown-lc80g                 0/1       Completed   0          16s
 ```
 
-job のステータスについてさらに知るには、こうします。
+job のステータスについて詳細を知るには、以下のようにします。
 
 ```bash
 $ kubectl describe jobs/countdown
@@ -46,7 +46,7 @@ Events:
   2m            2m              1       {job-controller }                       Normal          SuccessfulCreate        Created pod: countdown-lc80g
 ```
 
-そして、job の出力をそれが管理している pod を通じて確認するには、以下を実行します。
+そして、job の出力をそれが管理している pod から確認するには、以下を実行します。
 
 ```bash
 kubectl logs countdown-lc80g
@@ -61,7 +61,7 @@ kubectl logs countdown-lc80g
 1
 ```
 
-クリーンアップするには、`delete` コマンドを job オブジェクトに使います。job が管理している pod もすべて削除されます。
+クリーンアップのため、`delete` コマンドを job オブジェクトに実行します。job が管理している pod もすべて削除されます。
 
 ```bash
 $ kubectl delete job countdown

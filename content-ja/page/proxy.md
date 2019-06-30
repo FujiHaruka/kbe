@@ -7,7 +7,7 @@ url = "/api/"
 
 調査やテストのために [Kubernetes API サーバー](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/)に直接アクセスできると便利な場合や、それが必要な場合があります。
 
-そうするための一つの選択肢が、ローカル環境に API をプロキシすることです。以下のようにします。
+そうするための選択肢の一つが、ローカル環境に API をプロキシすることです。以下を実行します。
 
 ```bash
 $ kubectl proxy --port=8080
@@ -15,7 +15,7 @@ Starting to serve on 127.0.0.1:8080
 
 ```
 
-API にクエリを送るには (別のターミナルセッションで) 以下のようにします。
+API にクエリを送るには (別のターミナルセッションで) 以下を実行します。
 
 ```bash
 $ curl http://localhost:8080/api/v1
@@ -46,7 +46,7 @@ $ curl http://localhost:8080/api/v1
 $ kubectl get --raw=/api/v1
 ```
 
-また、サポートしている API のバージョンやリソースを調べたければ、以下のコマンドが使えます。
+また、サポートしている API のバージョンやリソースを調べたい場合は、以下のコマンドが使えます。
 
 ```bash
 $ kubectl api-versions

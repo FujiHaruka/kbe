@@ -5,9 +5,9 @@ date = "2019-02-27"
 url = "/sd/"
 +++
 
-Service discovery は [service](/service/) に接続する方法を見つけるプロセスです。[環境変数](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#environment-variables)をベースにした servcice discovery オプションはありますが、DNS ベースの service discovery のほうがお勧めです。DNS は[クラスタアドオン](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/README.md)なので、Kubernetes ディストリビューションがそのアドオンを提供していることを確認してください。なければ自身でインストールしてください。
+service discovery は [service](/service/) に接続する方法を見つけるプロセスです。[環境変数](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#environment-variables)ベースの servcice discovery オプションがありますが、DNS ベースの service discovery のほうがお勧めです。DNS は[クラスタアドオン](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/README.md)なので、Kubernetes ディストリビューションがそのアドオンを提供していることを確認してください。なければご自身でインストールしてください。
 
-`thesvc` という名前の [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/svc.yaml) と、それに沿っていくつかの pod を管理する [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/rc.yaml) を作成しましょう。
+`thesvc` という名前の [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/svc.yaml) と、それに伴っていくつかの pod を管理する [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/rc.yaml) を作成しましょう。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/sd/rc.yaml
@@ -15,13 +15,13 @@ $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/m
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/sd/svc.yaml
 ```
 
-クラスタの内部から、たとえば別の service から `thesvc` service に接続したいとします。これをシミュレートするために、同じ名前空間内に [jump pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/jumpod.yaml) を作ります。(名前空間は特に指定していないので `default` です)
+クラスタ内部から、たとえば別の service から `thesvc` service に接続したいとします。これをシミュレートするために、同じ名前空間内に [jump pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/jumpod.yaml) を作ります。(名前空間は特に指定していないので `default` です)
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/sd/jumpod.yaml
 ```
 
-DNS アドオンは service `thesvc` が FQDN `thesvc.default.svc.cluster.local` を通じてクラスタ内の他の pod からアクセス可能であることを保証してくれます。試してみましょう。
+DNS アドオンは `thesvc` service が FQDN `thesvc.default.svc.cluster.local` を通じてクラスタ内の他の pod からアクセス可能であることを保証してくれます。試してみましょう。
 
 ```bash
 $ kubectl exec -it jumpod -c shell -- ping thesvc.default.svc.cluster.local
@@ -40,7 +40,7 @@ PING thesvc.default.svc.cluster.local (172.30.251.137) 56(84) bytes of data.
 
 別の名前空間にデプロイされた service にアクセスするには、`$SVC.$NAMESPACE.svc.cluster.local` という形式の FQDN を使用します。
 
-どういう仕組み化を理解するために、以下を作成しましょう。
+どういう仕組みか理解するために、以下を作成しましょう。
 
 1. [名前空間](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-ns.yaml) `other`
 1. 名前空間 `other` 内の [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-svc.yaml) `thesvc`
@@ -56,16 +56,16 @@ $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/m
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/sd/other-svc.yaml
 ```
 
-これで、名前空間 `other` 内の service `thesvc` に名前空間 `default` から (また jump pod を通じて) アクセスできるようになりました。
+これで、名前空間 `other` 内の `thesvc` service に名前空間 `default` から (再度 jump pod を通じて) アクセスできるようになりました。
 
  ```bash
 $ kubectl exec -it jumpod -c shell -- curl http://thesvc.other/info
 {"host": "thesvc.other", "version": "0.5.0", "from": "172.17.0.5"}
 ```
 
-まとめると、DNS ベースの service discovery は、クラスタを横断して service に接続する柔軟で一般的な方法を提供します。
+まとめると、DNS ベースの service discovery は、クラスタ内を横断して service に接続する柔軟で一般的な方法を提供します。
 
-作成したリソースは以下ですべて削除できます。
+作成したリソースをすべて削除するには以下を実行します。
 
 ```bash
 $ kubectl delete pods jumpod
@@ -77,6 +77,6 @@ $ kubectl delete rc rcsise
 $ kubectl delete ns other
 ```
 
-名前空間を削除するとその中のすべてのリソースが削除されることを覚えていてください。
+名前空間を削除するとその中のすべてのリソースが削除されることを覚えておいてください。
 
 [前へ](/services) | [次へ](/pf)

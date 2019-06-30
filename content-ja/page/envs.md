@@ -5,7 +5,7 @@ date = "2019-02-27"
 url = "/envs/"
 +++
 
-pod 内で実行するコンテナに環境変数を設定できます。加えて、Kuberenetes は環境変数を通じて自動的にランタイム情報を公開します。
+pod 内で実行するコンテナに環境変数を設定できます。加えて、Kuberenetes は環境変数を通じた実行時の情報を自動的に公開します。
 
 [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml) を起動しましょう。環境変数 `SIMPLE_SERVICE_VERSION` を値 `1.0` で渡しています。
 
@@ -23,7 +23,7 @@ IP:                     172.17.0.3
 {"host": "172.17.0.3:9876", "version": "1.0", "from": "172.17.0.1"}
 ```
 
-デフォルトのレスポンスは `"version": "0.5.0"` なので、ユーザー設定の環境変数を実際に採用したことがわかります。
+デフォルトのレスポンスは `"version": "0.5.0"` なので、ユーザーが設定した環境変数を実際に採用したことがわかります。
 
 Kubernetes 自身がどのような環境変数を自動的に供給しているかを確認できます。(クラスタ内部からは [app](https://github.com/mhausenblas/simpleservice) が公開している専用のエンドポイントを使います)
 
@@ -48,12 +48,12 @@ ROUTER_PORT=tcp://172.30.246.127:80
 ...
 ```
 
-作成した pod を削除するには以下のようにします。
+作成した pod を削除するには以下を実行します。
 
 ```bash
 $ kubectl delete pod/envs
 ```
 
-上で供給された環境変数以外にも、[downward API](https://kubernetes.io/docs/user-guide/downward-api/) を使って公開できます。
+上で供給された環境変数以外にも、[downward API](https://kubernetes.io/docs/user-guide/downward-api/) を使って環境変数を公開できます。
 
 [前へ](/healthz) | [次へ](/ns)

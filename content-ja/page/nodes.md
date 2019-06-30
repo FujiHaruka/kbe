@@ -5,9 +5,9 @@ date = "2019-02-28"
 url = "/nodes/"
 +++
 
-Kubernetes において、node は pod の形をしたワークロードを実行する (仮想) マシンです。普通、開発者は node を直接扱いませんが、管理者は node の [操作](https://kubernetes.io/docs/concepts/nodes/node/) に慣れておくとよいでしょう。
+Kubernetes において、node は pod の形をしたワークロードを実行する (仮想) マシンです。普通、開発者は node を直接扱いませんが、管理者は node の[操作](https://kubernetes.io/docs/concepts/nodes/node/)に慣れておくとよいでしょう。
 
-クラスタ内で利用可能な node をリスト表示するには、以下を実行します (出力は環境によって異なります。ここでは [Minishift](/diy/) を使用しています)。
+クラスタ内で利用可能な node をリスト表示するには、以下を実行します。(出力は環境によって異なります。ここでは [Minishift](/diy/) を使用しています)
 
 ```bash
 $ kubectl get nodes
@@ -15,14 +15,14 @@ NAME             STATUS    AGE
 192.168.99.100   Ready     14d
 ```
 
-開発者の視点から興味深いタスクは、Kubernetes に特定の node 上の pod にスケジュールさせることです。そのために、まず対象の node に label を付ける必要があります。
+開発者の視点から興味深いタスクは、Kubernetes に特定の node 上の pod をスケジュールさせることです。そのためにまず、対象の node に label を付ける必要があります。
 
 ```bash
 $ kubectl label nodes 192.168.99.100 shouldrun=here
 node "192.168.99.100" labeled
 ```
 
-これで [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/nodes/pod.yaml) を作成できます。これは `shouldrun=here` という label の付いた node 上にスケジュールします。
+これで [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/nodes/pod.yaml) を作成できます。この pod は `shouldrun=here` という label の付いた node 上にスケジュールされます。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/nodes/pod.yaml
@@ -32,7 +32,7 @@ NAME                      READY     STATUS    RESTARTS   AGE       IP           
 onspecificnode            1/1       Running   0          8s        172.17.0.3       192.168.99.100
 ```
 
-特定の node について、たとえば `192.168.99.100` について知るには以下を実行します。
+特定の node について、たとえば `192.168.99.100` について詳細を知るには以下を実行します。
 
 ```bash
 $ kubectl describe node 192.168.99.100
@@ -88,6 +88,6 @@ Allocated resources:
 No events.
 ```
 
-なお、affinity を使って[node に pod を割り当てる](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)など、上に示したよりも洗練されたやり方があります。ユースケースによってはそういう他のやり方も調べるとよいでしょう。
+なお、affinity を使って [node に pod を割り当てる](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)など、上に示したよりも洗練されたやり方があります。ユースケースによっては他のやり方も調べるとよいでしょう。
 
 [前へ](/ic) | [次へ](/api)

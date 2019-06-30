@@ -5,17 +5,17 @@ date = "2019-02-27"
 url = "/volumes/"
 +++
 
-Kubernetes の volume は大雑把にいうと pod 内で実行中のすべてのコンテナからアクセス可能なディレクトリです。コンテナ内のファイルシステムとは対照的に、volume 内のデータはコンテナが再起動しても保持されます。volume を裏付ける媒体と volume の内容は volume タイプによって決定されます。
+Kubernetes の volume は大雑把にいうと、pod 内で実行中のすべてのコンテナからアクセスできるディレクトリです。コンテナ内のファイルシステムとは対照的に、volume 内のデータはコンテナが再起動しても保持されます。volume の裏で使われる媒体と volume の内容は volume タイプによって決定されます。
 
-- node 内で有効なもの (`emptyDir`、`hostPath` など)
-- ファイル共有 (`nfs` など)
-- クラウドプロバイダ特有のもの (`awsElasticBlockStore`、`azureDisk`、`gcePersistentDisk` など)
-- 分散ファイルシステム (たとえば `glusterfs`、`cephfs`)
-- 特別な用途で使うもの (`secret`、`gitRepo` など)
+- node 内で有効なタイプ (`emptyDir`、`hostPath` など)
+- ファイル共有のタイプ (`nfs` など)
+- クラウドプロバイダ特有のタイプ (`awsElasticBlockStore`、`azureDisk`、`gcePersistentDisk` など)
+- 分散ファイルシステムのタイプ (たとえば `glusterfs`、`cephfs`)
+- 特別な用途で使うタイプ (`secret`、`gitRepo` など)
 
-特殊な種類の volume として `PersistentVolume` がありますが、別の箇所で取り扱います。
+特殊なタイプの volume として `PersistentVolume` がありますが、別のページで紹介します。
 
-[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作りましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。
+[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作成しましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/master/specs/volumes/pod.yaml
@@ -51,12 +51,12 @@ some data
 
 留意点として、各コンテナのどこに volume をマウントするかを決める必要があり、また `emptyDir` では現在リソースの消費制限を設けることはできません。
 
-pod を削除するには以下のようにします。
+pod を削除するには以下を実行します。
 
 ```bash
 $ kubectl delete pod/sharevol
 ```
 
-すでに述べたように、これは共有 volume とその内容はすべて削除されます。
+前述のように、共有 volume とその内容はすべて削除されます。
 
 [前へ](/ns) | [次へ](/pv)

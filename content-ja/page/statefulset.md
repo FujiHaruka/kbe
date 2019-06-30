@@ -45,6 +45,6 @@ pod "jumpod" deleted
 
 実際、上記のように `0` 個のキーが利用可能だとわかります。
 
-なお、ステートフルなアプリに `StatefulSet` を使えば必ず万事解決となるとは限りません。ワークロードをきめ細かく制御するためにカスタムコントローラーを書いて、[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) を定義したほうがうまくいく場合もあります。
+なお、ステートフルなアプリに `StatefulSet` を使えば万事解決とは限りません。ワークロードをきめ細かく制御するためにカスタムコントローラーを書いて、[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) を定義したほうがうまくいく場合もあります。
 
 [前へ](/jobs) | [次へ](/ic)

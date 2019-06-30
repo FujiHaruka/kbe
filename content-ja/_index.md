@@ -1,4 +1,4 @@
-これは Kubernetes の実践的な入門です。例を御覧ください。
+手を動かして学ぶ Kubernetes の入門です。以下の例をご覧ください。
 
 - [pods](/pods/)
 - [labels](/labels/)
@@ -20,4 +20,4 @@
 - [API server](/api/)
 
 
-自分で試してみたいですか？　ここにある例はすべて、Kubernetes の Red Hat によるディストリビューション OpenShift で実行できます。ローカルでセットアップするには[ここ](/diy/)の説明を見てください。オンライン環境で実行するには [openshift.com](https://openshift.com/) にサインアップしてください。
+ご自分で動かしてみたいですか？　ここにある例はすべて、Red Hat による Kubernetes のディストリビューション OpenShift で実行できます。ローカルでセットアップするには[ここ](/diy/)を参照してください。オンライン環境で実行するには [openshift.com](https://openshift.com/) にサインアップしてください。
