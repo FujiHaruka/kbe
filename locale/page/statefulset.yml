@@ -15,32 +15,33 @@ texts:
 ---
 texts:
   en: "If you have a stateless app you want to use a deployment. However, for a stateful app you might want to use a [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Unlike a deployment, the `StatefulSet` provides certain guarantees about the identity of the pods it is managing (that is, predictable names) and about the startup order. Two more things that are different compared to a deployment: for network communication you need to create a [headless services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) and for persistency the `StatefulSet` manages a [persistent volume](/pv) per pod."
-  ja: __COPY__
+  ja: ステートレスなアプリを運用するには deployment を使うのが適切です。けれども、ステートフルなアプリには [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) をお勧めします。deployment と違って、`StatefulSet` は管理下にある pod の同一性 (つまり予測可能な命名) と起動順序についてある保証を提供します。他に二点、deployment と違う点があります。一つは [headless services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) を作成するために必要なネットワーク通信で、もう一つは `StatefulSet` が管理する pod ごとの [persistent volume](/pv) の永続性です。
 ---
 texts:
   en: "In order to see how this all plays together, we will be using an [educational Kubernetes-native NoSQL datastore](https://blog.openshift.com/kubernetes-statefulset-in-action/). "
-  ja: __COPY__
+  ja: これがどのように互いに連動しているかを確認するために、[educational Kubernetes-native NoSQL datastore](https://blog.openshift.com/kubernetes-statefulset-in-action/) を使いましょう。
 ---
 texts:
   en: "Let's start with creating the [stateful app](https://raw.githubusercontent.com/mhausenblas/mehdb/master/app.yaml), that is, the `StatefulSet` along with the persistent volumes and the headless service:"
-  ja: __COPY__
+  ja: [stateful app](https://raw.githubusercontent.com/mhausenblas/mehdb/master/app.yaml) の作成から始めましょう。これは persistent volume と headless service をもっている `StatefulSet` です。
 ---
 texts:
   en: "After a minute or so, you can have a look at all the resources that have been created:"
-  ja: __COPY__
+  ja: 1 分ほど待つと、すべてのリソースが作成済みになったのが確認できます。
 ---
 texts:
   en: "Now we can check if the stateful app is working properly. To do this, we use the `/status` endpoint of the headless service `mehdb:9876` and since we haven't put any data yet into the datastore, we'd expect that `0` keys are reported:"
-  ja: __COPY__
+  ja: では、stateful app が適切に動作しているかどうか確認しましょう。そのために、headless service `mehdb:9876` の `/status` エンドポイントを使います。データストアにまだデータを入れていませんから、期待される結果は `0` 個のキーです。
+
 ---
 texts:
   en: And indeed we see `0` keys being available, reported above.
-  ja: __COPY__
+  ja: 実際、上記のように `0` 個のキーが利用可能だとわかります。
 ---
 texts:
   en: Note that sometimes a `StatefulSet` is not the best fit for your stateful app. You might be better off defining a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) along with writing a custom controller to have finer-grained control over your workload.
-  ja: __COPY__
+  ja: なお、ステートフルなアプリに `StatefulSet` を使えば必ず万事解決となるとは限りません。ワークロードをきめ細かく制御するためにカスタムコントローラーを書いて、[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) を定義したほうがうまくいく場合もあります。
 ---
 texts:
   en: "[Previous](/jobs) | [Next](/ic)"
-  ja: __COPY__
+  ja: "[前](/jobs) | [次](/ic)"
