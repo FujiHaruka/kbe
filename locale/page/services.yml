@@ -29,7 +29,7 @@ texts:
     and a [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml)
 
     along with it:
-  ja: [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/rc.yaml) と [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml) によって管理された pod を作成してみましょう。
+  ja: "[RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/rc.yaml) と [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/services/svc.yaml) によって管理された pod を作成してみましょう。"
 ---
 texts:
   en: "Now we have the supervised pod running:"
@@ -115,4 +115,4 @@ texts:
 ---
 texts:
   en: "[Previous](/deployments) | [Next](/sd)"
-  ja: "[前](/deployments) | [次](/sd)"
+  ja: "[前へ](/deployments) | [次へ](/sd)"

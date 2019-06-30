@@ -23,7 +23,7 @@ texts:
 ---
 texts:
   en: "Let's start with creating the [stateful app](https://raw.githubusercontent.com/mhausenblas/mehdb/master/app.yaml), that is, the `StatefulSet` along with the persistent volumes and the headless service:"
-  ja: [stateful app](https://raw.githubusercontent.com/mhausenblas/mehdb/master/app.yaml) の作成から始めましょう。これは persistent volume と headless service をもっている `StatefulSet` です。
+  ja: "[stateful app](https://raw.githubusercontent.com/mhausenblas/mehdb/master/app.yaml) の作成から始めましょう。これは persistent volume と headless service をもっている `StatefulSet` です。"
 ---
 texts:
   en: "After a minute or so, you can have a look at all the resources that have been created:"
@@ -44,4 +44,4 @@ texts:
 ---
 texts:
   en: "[Previous](/jobs) | [Next](/ic)"
-  ja: "[前](/jobs) | [次](/ic)"
+  ja: "[前へ](/jobs) | [次へ](/ic)"

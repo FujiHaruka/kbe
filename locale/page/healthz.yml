@@ -40,7 +40,7 @@ texts:
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/pod.yaml)
 
     that exposes an endpoint `/health`, responding with a HTTP `200` status code:
-  ja: [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/pod.yaml) を作成しましょう。これはエンドポイント `/health` を公開していて、HTTP ステータスコード `200` を返します。
+  ja: "[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/healthz/pod.yaml) を作成しましょう。これはエンドポイント `/health` を公開していて、HTTP ステータスコード `200` を返します。"
 ---
 texts:
   en: "In the pod specification we've defined the following:"
@@ -120,4 +120,4 @@ texts:
 ---
 texts:
   en: "[Previous](/sd) | [Next](/envs)"
-  ja: "[前](/sd) | [次](/envs)"
+  ja: "[前へ](/sd) | [次へ](/envs)"

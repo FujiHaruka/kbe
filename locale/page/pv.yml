@@ -15,7 +15,7 @@ texts:
 ---
 texts:
   en: A [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PV) is a cluster-wide resource that you can use to store data in a way that it persists beyond the lifetime of a pod. The PV is not backed by locally-attached storage on a worker node but by networked storage system such as EBS or NFS or a distributed filesystem like Ceph.
-  ja: [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PV) はクラスタで共通のリソースで、pod が削除されてもデータを維持したいときに使えます。PV の裏の仕組みは worker node 上のローカル接続ストレージではなく、EBS や NFS のようなネットワークストレージシステムや、あるいは Ceph のような分散ファイルシステムです。
+  ja: "[persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PV) はクラスタで共通のリソースで、pod が削除されてもデータを維持したいときに使えます。PV の裏の仕組みは worker node 上のローカル接続ストレージではなく、EBS や NFS のようなネットワークストレージシステムや、あるいは Ceph のような分散ファイルシステムです。"
 ---
 texts:
   en: "In order to use a PV you need to claim it first, using a persistent volume claim (PVC). The PVC requests a PV with your desired specification (size, speed, etc.) from Kubernetes and binds it then to a pod where you can mount it as a volume. So let's create such a [PVC](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/pvc.yaml), asking Kubernetes for 1 GB of storage using the default [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/):"
@@ -47,4 +47,4 @@ texts:
 ---
 texts:
   en: "[Previous](/volumes) | [Next](/secrets)"
-  ja: "[前](/volumes) | [次](/secrets)"
+  ja: "[前へ](/volumes) | [次へ](/secrets)"

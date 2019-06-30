@@ -22,7 +22,7 @@ texts:
     Let's create a [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml)
 
     called `sise-deploy` that supervises two replicas of a pod as well as a replica set:
-  ja: [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml) を作りましょう。名前は `sise-deploy` で、2 つの pod の replica と 1 つの replica set を管理します。
+  ja: "[deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/deployments/d09.yaml) を作りましょう。名前は `sise-deploy` で、2 つの pod の replica と 1 つの replica set を管理します。"
 ---
 texts:
   en: "You can have a look at the deployment, as well as the the replica set and the pods the deployment looks after like so:"
@@ -113,4 +113,4 @@ texts:
 ---
 texts:
   en: "[Previous](/labels) | [Next](/services)"
-  ja: "[前](/labels) | [次](/services)"
+  ja: "[前へ](/labels) | [次へ](/services)"

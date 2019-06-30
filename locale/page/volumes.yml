@@ -49,7 +49,7 @@ texts:
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml)
 
     with two containers that use an `emptyDir` volume to exchange data:
-  ja: [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作りましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。
+  ja: "[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作りましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。"
 ---
 texts:
   en: >-
@@ -84,4 +84,4 @@ texts:
 ---
 texts:
   en: "[Previous](/ns) | [Next](/pv)"
-  ja: "[前](/ns) | [次](/pv)"
+  ja: "[前へ](/ns) | [次へ](/pv)"

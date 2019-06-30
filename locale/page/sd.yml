@@ -74,7 +74,7 @@ texts:
 ---
 texts:
   en: a [namespace](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-ns.yaml) `other`
-  ja: [名前空間](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-ns.yaml) `other`
+  ja: "[名前空間](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-ns.yaml) `other`"
 ---
 texts:
   en: a [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-svc.yaml) `thesvc` in namespace `other`
@@ -112,4 +112,4 @@ texts:
 ---
 texts:
   en: "[Previous](/services) | [Next](/pf)"
-  ja: "[前](/services) | [次](/pf)"
+  ja: "[前へ](/services) | [次へ](/pf)"

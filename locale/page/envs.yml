@@ -27,7 +27,7 @@ texts:
     Let's launch a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml)
 
     that we pass an environment variable `SIMPLE_SERVICE_VERSION` with the value `1.0`:
-  ja: [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml) を起動しましょう。環境変数 `SIMPLE_SERVICE_VERSION` を値 `1.0` で渡しています。
+  ja: "[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/envs/pod.yaml) を起動しましょう。環境変数 `SIMPLE_SERVICE_VERSION` を値 `1.0` で渡しています。"
 ---
 texts:
   en: >-
@@ -69,4 +69,4 @@ texts:
 ---
 texts:
   en: "[Previous](/healthz) | [Next](/ns)"
-  ja: "[前](/healthz) | [次](/ns)"
+  ja: "[前へ](/healthz) | [次へ](/ns)"
