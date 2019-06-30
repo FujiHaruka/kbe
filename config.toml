@@ -3,7 +3,7 @@ DefaultContentLanguage = "ja"
 title = "Kubernetes By Example"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
-# googleAnalytics = "UA-34425776-2"
+googleAnalytics = "UA-143063367-1"
 contentDir = "content-ja"
 
 [Params]
