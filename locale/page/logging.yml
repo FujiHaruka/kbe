@@ -24,32 +24,32 @@ texts:
     [setups](http://some.ops4devs.info/logging/) consider logs across nodes and store
 
     them in a central place, either within the cluster or via a dedicated (cloud-based) service.
-  ja: __COPY__
+  ja: ロギングは、アプリケーションとクラスタ内部でおよそ何が起きているのかを理解するための一つの選択肢です。Kubernetes の基本的なロギングは、コンテナの出力を利用可能にします。これはデバッグにうってつけのユースケースです。より高度なものでは、[setups](http://some.ops4devs.info/logging/) は node 間を横断するログを扱い、それを中央に保存します。保存場所はクラスタ内部でもよいですが、専用の (クラウド) サービスを通じて保存することもできます。
 ---
 texts:
   en: >-
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml)
 
     called `logme` that runs a container writing to `stdout` and `stderr`:
-  ja: __COPY__
+  ja: `logme` という [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml) を作成しましょう。これは `stdout` と `stderr` に書き込むコンテナを実行します。
 ---
 texts:
   en: >-
     To view the five most recent log lines of the `gen` container in the `logme` pod,
 
     execute:
-  ja: __COPY__
+  ja: `logme` pod 内にある `gen` コンテナのログを最新 5 行表示するには、以下を実行します。
 ---
 texts:
   en: "To stream the log of the `gen` container in the `logme` pod (like `tail -f`), do:"
-  ja: __COPY__
+  ja: `logme` pod 内にある `gen` コンテナのログを (`tail -f` のように) ストリーミングするには、以下を実行します。
 ---
 texts:
   en: >-
     Note that if you wouldn't have specified `--since=10s` in the above command, you
 
     would have gotten all log lines from the start of the container.
-  ja: __COPY__
+  ja: なお、上のコマンドで `--since=10s` を指定しなければ、コンテナ起動後から書き込まれたログが全行取得できます。
 ---
 texts:
   en: >-
@@ -60,12 +60,12 @@ texts:
     called `oneshot` that counts down from 9 to 1 and then exits. Using the `-p` option
 
     you can print the logs for previous instances of the container in a pod:
-  ja: __COPY__
+  ja: ライフサイクルをすでに終了した pod についてもログを確認できます。そのために `oneshot` という [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/oneshotpod.yaml) を作成します。これは 9 から 1 までカウントダウンしてから停止します。`-p` オプションを使うと、pod 内のコンテナの以前の (previous) インスタンスについてログを表示できます。
 ---
 texts:
   en: "You can remove the created pods with:"
-  ja: __COPY__
+  ja: 作成した pod を削除するには以下を実行します。
 ---
 texts:
   en: "[Previous](/secrets) | [Next](/jobs)"
-  ja: __COPY__
+  ja: "[前](/secrets) | [次](/jobs)"
