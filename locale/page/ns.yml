@@ -20,36 +20,36 @@ texts:
     as a workspace you're sharing with other users. Many resources such as pods and
 
     services are namespaced, while some, for example, nodes are not namespaced (but cluster-wide). As a developer you'd usually use an assigned namespace, however admins may wish to manage them, for example to set up access control or resource quotas.
-  ja: 名前空間はクラスタをより小さい単位に切り分けるために、 Kubernetes リソースのスコープを提供します。名前空間は他のユーザーと共有するワークスペースのように考えられます。pod や service のようなリソースの多くは名前空間で分けられますが、たとえば node のように名前空間で分けられずクラスタで共有されるリソースもあります。開発者は普段自分に割り当てられた名前空間を使いますが、管理者はアクセス制御やリソースクォータ設定などの用途で名前空間を管理したいと思うかもしれません。
+  ja: 名前空間はクラスタをより小さい単位に切り分けるために、 Kubernetes リソースのスコープを提供します。名前空間は他のユーザーと共有するワークスペースのように考えられます。pod や service のようなリソースの多くは名前空間で分けられますが、たとえば node のように名前空間で分けられずクラスタ内で共有されるリソースもあります。開発者は普段自分に割り当てられた名前空間を使いますが、管理者はアクセス制御やリソースクォータ設定などの用途で名前空間を管理したいと思うかもしれません。
 ---
 texts:
   en: >-
     Let's list all namespaces (note that the output will depend on the environment
 
     you're using, I'm using [Minishift](/diy/) here):
-  ja: 全名前空間をリスト表示してみましょう。(出力は使用している環境によります。ここでは [Minishift](/diy/) を使っています)
+  ja: すべての名前空間をリスト表示してみましょう。(出力は使用している環境によります。ここでは [Minishift](/diy/) を使っています)
 ---
 texts:
   en: "You can learn more about a namespace using the `describe` verb, for example:"
-  ja: 名前空間についてさらに知るには `describe` コマンドを使います。以下が例です。
+  ja: 名前空間について詳細を知るには `describe` コマンドを使います。以下が例です。
 ---
 texts:
   en: >-
     Let's now create a new [namespace](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/ns.yaml)
 
     called `test` now:
-  ja: では、`test` という新しい[名前空間](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/ns.yaml)を作成してみましょう。
+  ja: では、`test` という名前の新しい[名前空間](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/ns.yaml)を作成してみましょう。
 ---
 texts:
   en: Alternatively, we can could have created the namespace using the `kubectl create namespace test` command.
-  ja: あるいは、`kubectl create namespace test` コマンドで名前空間を作ることもできます。
+  ja: あるいは、`kubectl create namespace test` コマンドで名前空間を作成することもできます。
 ---
 texts:
   en: >-
     To launch a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/pod.yaml) in
 
     the newly created namespace `test`, do:
-  ja: 新しく作られた名前空間 `test` の中で [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/pod.yaml) を起動するにはこうします。
+  ja: 新しく作られた名前空間 `test` の中で [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/ns/pod.yaml) を起動するには以下のようにします。
 ---
 texts:
   en: >-
@@ -60,22 +60,22 @@ texts:
     namespaces (for example: `dev` and `prod`). Hard-coding the
 
     namespace directly in the `metadata` section like shown in the following is possible but causes less flexibility when deploying your apps:
-  ja: 上記の方法を使うと、名前空間は実行時のプロパティになります。つまり、同じ pod や service などを複数の名前空間 (たとえば `dev` と `prod`) にデプロイできます。以下に示すように `metadata` セクションに名前空間を直接ハードコーディングすることもできますが、そうするとアプリのデプロイ時に柔軟性が欠けます。
+  ja: 上記の方法を使うと、名前空間は実行時のプロパティになります。つまり、同じ pod や service などを複数の名前空間 (たとえば `dev` と `prod`) にデプロイできます。以下に示すように `metadata` セクションに名前空間を直接ハードコーディングすることも可能ですが、アプリのデプロイ時に柔軟性が欠けます。
 ---
 texts:
   en: "To list namespaced objects such as our pod `podintest`, run the following command:"
-  ja: 私たちの pod `podintest` のように名前空間で分けられたオブジェクトをリスト表示するには、次のコマンドを実行します。
+  ja: 私たちの `podintest` pod のように名前空間で分けられたオブジェクトをリスト表示するには、次のコマンドを実行します。
 ---
 texts:
   en: "You can remove the namespace (and everything inside) with:"
-  ja: 名前空間 (とその中のすべて) を削除するには、以下のようにします。
+  ja: 名前空間 (とその中のすべて) を削除するには、以下を実行します。
 ---
 texts:
   en: >-
     If you're an admin, you might want to check out the [docs](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)
 
     for more info how to handle namespaces.
-  ja: 管理者であれば、名前空間を扱うためにより多くの情報を得るには [docs](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/) を読みたいと思われるかもしれません。
+  ja: 管理者であれば、名前空間に関してより多くの情報を得るために[ドキュメント](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)を参照することをお勧めします。
 ---
 texts:
   en: "[Previous](/envs) | [Next](/volumes)"

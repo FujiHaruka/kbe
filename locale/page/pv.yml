@@ -19,15 +19,15 @@ texts:
 ---
 texts:
   en: "In order to use a PV you need to claim it first, using a persistent volume claim (PVC). The PVC requests a PV with your desired specification (size, speed, etc.) from Kubernetes and binds it then to a pod where you can mount it as a volume. So let's create such a [PVC](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/pvc.yaml), asking Kubernetes for 1 GB of storage using the default [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/):"
-  ja: PV を使うためには、最初に persistent volume claim (PVC) で宣言する必要があります。PVC は PV に望ましい仕様 (サイズ、速度など) を Kubernetes からリクエストし、それからそれを volume としてマウントできる pod にバインドします。では、[PVC](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/pvc.yaml) を作成しましょう。Kubernetes に 1 GB のストレージをデフォルトの [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) で要求します。
+  ja: PV を使うためには、最初に persistent volume claim (PVC) で宣言する必要があります。PVC は PV に望ましい仕様 (サイズ、速度など) を Kubernetes から要求し、次に PV を volume としてマウントできる pod にバインドします。では、[PVC](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/pvc.yaml) を作成しましょう。Kubernetes に 1 GB のストレージをデフォルトの [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) で要求します。
 ---
 texts:
   en: "To understand how the persistency plays out, let's create a [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/deploy.yaml) that uses above PVC to mount it as a volume into `/tmp/persistent`:"
-  ja: 永続性の仕組みを理解するために、上の PVC を使用してそれを `/tmp/persistent` に volume としてマウントする [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/deploy.yaml) を作成しましょう。
+  ja: 永続化の仕組みを理解するために、上の PVC を使用して PV を `/tmp/persistent` に volume としてマウントする [deployment](https://github.com/openshift-evangelists/kbe/blob/master/specs/pv/deploy.yaml) を作成しましょう。
 ---
 texts:
   en: "Now we want to test if data in the volume actually persists. For this we find the pod managed by above deployment, exec into its main container and create a file called `data` in the `/tmp/persistent` directory (where we decided to mount the PV):"
-  ja: さて、volume が実際に永続化されているかテストしたいと思います。そのために、上の deployment で管理している pod を見つけ、そのメインのコンテナに exec を実行して、`/tmp/persistent` ディレクトリ (PV をマウントすることにしたディレクトリ) に `data` という名前のファイルを作成します。
+  ja: さて、volume が実際に永続化されているかテストしたいと思います。そのために、上記の deployment で管理している pod を見つけ、そのメインのコンテナに exec を実行して、`/tmp/persistent` ディレクトリ (PV をマウントすることにしたディレクトリ) に `data` という名前のファイルを作成します。
 ---
 texts:
   en: "It's time to destroy the pod and let the deployment launch a new pod. The expectation is that the PV is available again in the new pod and the data in `/tmp/persistent` is still present. Let's check that:"
@@ -39,11 +39,11 @@ texts:
 ---
 texts:
   en: "Note that the default behavior is that even when the deployment is deleted, the PVC (and the PV) continues to exist. This storage protection feature helps avoiding data loss. Once you're sure you don't need the data anymore, you can go ahead and delete the PVC and with it eventually destroy the PV:"
-  ja: 留意点として、デフォルトの動作では deployment が削除されても PVC (と PV) は存在し続けます。ストレージをこのように保護する機能はデータ損失を防ぐためです。データがもう確実に不要になったら、先に進んで PVC を削除することができます。それに伴って PV も削除されます。
+  ja: 留意点として、デフォルトの動作では deployment が削除されても PVC (と PV) は存在し続けます。ストレージをこのように保護する機能はデータ損失を防ぐためです。データがもう確実に不要になったら、PVC を削除することができます。それに伴って PV も削除されます。
 ---
 texts:
   en: The types of PV available in your Kubernetes cluster depend on the environment (on-prem or public cloud). Check out the [Stateful Kubernetes](https://stateful.kubernetes.sh/#storage) reference site if you want to learn more about this topic.
-  ja: どんなタイプの PV が Kubernetes クラスタで利用可能かは環境によります (オンプレミスかパブリッククラウドか)。このトピックについてさらに学びたい場合は、[Stateful Kubernetes](https://stateful.kubernetes.sh/#storage) を読んでください。
+  ja: どんなタイプの PV が Kubernetes クラスタで利用できるかは環境によります (オンプレミスかパブリッククラウドか)。このトピックについてさらに学びたい場合は、[Stateful Kubernetes](https://stateful.kubernetes.sh/#storage) を参照してください。
 ---
 texts:
   en: "[Previous](/volumes) | [Next](/secrets)"

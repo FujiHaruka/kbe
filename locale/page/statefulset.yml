@@ -40,7 +40,7 @@ texts:
 ---
 texts:
   en: Note that sometimes a `StatefulSet` is not the best fit for your stateful app. You might be better off defining a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) along with writing a custom controller to have finer-grained control over your workload.
-  ja: なお、ステートフルなアプリに `StatefulSet` を使えば必ず万事解決となるとは限りません。ワークロードをきめ細かく制御するためにカスタムコントローラーを書いて、[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) を定義したほうがうまくいく場合もあります。
+  ja: なお、ステートフルなアプリに `StatefulSet` を使えば万事解決とは限りません。ワークロードをきめ細かく制御するためにカスタムコントローラーを書いて、[custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) を定義したほうがうまくいく場合もあります。
 ---
 texts:
   en: "[Previous](/jobs) | [Next](/ic)"

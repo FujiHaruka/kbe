@@ -20,7 +20,7 @@ texts:
     addition, Kubernetes exposes certain runtime infos via environment variables
 
     automatically.
-  ja: pod 内で実行するコンテナに環境変数を設定できます。加えて、Kuberenetes は環境変数を通じて自動的にランタイム情報を公開します。
+  ja: pod 内で実行するコンテナに環境変数を設定できます。加えて、Kuberenetes は環境変数を通じた実行時の情報を自動的に公開します。
 ---
 texts:
   en: >-
@@ -38,7 +38,7 @@ texts:
 ---
 texts:
   en: 'And indeed it has picked up the user-provided environment variable since the default response would be `"version": "0.5.0"`.'
-  ja: "デフォルトのレスポンスは `\"version\": \"0.5.0\"` なので、ユーザー設定の環境変数を実際に採用したことがわかります。"
+  ja: "デフォルトのレスポンスは `\"version\": \"0.5.0\"` なので、ユーザーが設定した環境変数を実際に採用したことがわかります。"
 ---
 texts:
   en: >-
@@ -58,14 +58,14 @@ texts:
 ---
 texts:
   en: "You can destroy the created pod with:"
-  ja: 作成した pod を削除するには以下のようにします。
+  ja: 作成した pod を削除するには以下を実行します。
 ---
 texts:
   en: >-
     In addition to the above provided environment variables, you can expose more using
 
     the [downward API](https://kubernetes.io/docs/user-guide/downward-api/).
-  ja: 上で供給された環境変数以外にも、[downward API](https://kubernetes.io/docs/user-guide/downward-api/) を使って公開できます。
+  ja: 上で供給された環境変数以外にも、[downward API](https://kubernetes.io/docs/user-guide/downward-api/) を使って環境変数を公開できます。
 ---
 texts:
   en: "[Previous](/healthz) | [Next](/ns)"

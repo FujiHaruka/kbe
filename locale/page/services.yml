@@ -20,7 +20,7 @@ texts:
     pods up-to-date is the job of [kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/), a process that runs on every node, which queries the API server to learn about
 
     new services in the cluster.
-  ja: service は pod の抽象化で、いわゆる仮想 IP (VIP) アドレスを安定して提供します。pod は変更があるとそれに伴う IP アドレスも変更される可能性がありますが、service は VIP を使うため pod の中で実行するコンテナにクライアントから確実に接続できます。VIP の `virtual` とはどういうことかというと、ネットワークインターフェイスに結びついた実際の IP アドレスではありません。その目的は、単純に一つ以上の pod にトラフィックを転送することです。VIP と pod のマッピングを最新状態で維持するのは、[kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/) の仕事です。kube-proxy は各 node 上で実行されるプロセスで、クラスタ内の新しい service について知るために API サーバーに問い合わせます。
+  ja: service は pod の抽象化で、いわゆる仮想 IP (VIP) アドレスを安定して提供します。pod に変更があるとそれに付随する IP アドレスも変更される可能性がありますが、service は VIP を使うため pod 内で実行するコンテナにクライアントから確実に接続できます。VIP の `virtual` とはどういうことかというと、ネットワークインターフェイスに結びついた実際の IP アドレスではないということです。その目的は単純で、一つ以上の pod にトラフィックを転送することです。VIP と pod のマッピングを最新状態で維持するのは、[kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/) の役目です。kube-proxy とは各 node 上で実行されるプロセスで、クラスタ内の新しい service について知るために API サーバーに問い合わせます。
 ---
 texts:
   en: >-
@@ -33,32 +33,32 @@ texts:
 ---
 texts:
   en: "Now we have the supervised pod running:"
-  ja: 管理されている pod が実行されているのを確認できます。
+  ja: 管理対象の pod が実行されているのを確認できます。
 ---
 texts:
   en: >-
     You can, from within the cluster, access the pod directly via its
 
     assigned IP `172.17.0.3`:
-  ja: pod に割り当てられた IP `172.17.0.3` を通じてクラスタの内部から pod に直接アクセスできます。
+  ja: pod に割り当てられた IP `172.17.0.3` を通じて、クラスタ内部から pod に直接アクセスできます。
 ---
 texts:
   en: >-
     This is however, as mentioned above, not advisable since the IPs assigned
 
     to pods may change. Hence, enter the `simpleservice` we've created:
-  ja: ただし、これは前述のように pod に割り当てられた IP アドレスが変わる可能性があるためお勧めできません。そこで、作成した `simpleservice` に入ります。
+  ja: ただし、これは前述のように pod に割り当てられた IP アドレスが変更される可能性があるためお勧めできません。そこで、作成した `simpleservice` に入ります。
 ---
 texts:
   en: >-
     The service keeps track of the pods it forwards traffic to through the label,
 
     in our case `app=sise`.
-  ja: service は label を通じて、トラフィックの転送先となる pod を追跡します。私たちの例では、label は `app=sise` です。
+  ja: service は label を通じてトラフィックの転送先となる pod を追跡します。私たちの例で、label は `app=sise` です。
 ---
 texts:
   en: "From within the cluster we can now access `simpleservice` like so:"
-  ja: クラスタの内部から `simpleservice` にアクセスできます。
+  ja: クラスタ内部から `simpleservice` にアクセスできます。
 ---
 texts:
   en: >-
@@ -73,7 +73,7 @@ texts:
 ---
 texts:
   en: "Looking at the rules that concern our service (executed on a cluster node) yields:"
-  ja: 私たちのサービスに関するルールを見ます。(クラスタノード上で実行します)
+  ja: 私たちの service に関するルールを見ます。(クラスタノード上で実行します)
 ---
 texts:
   en: >-
@@ -100,7 +100,7 @@ texts:
     In above routing table listing we see rules for the newly created pod serving at
 
     `172.17.0.4:9876` as well as an additional rule:
-  ja: 上のルーティングテーブルのリストをみると、新しく作られた pod は `172.17.0.4:9876` をサーブしていて、その pod 用のルールが追加されたのがわかりますが、他にも一つルーツが追加されています。
+  ja: 上のルーティングテーブルのリストをみると、新しく作られた pod は `172.17.0.4:9876` でサービス提供していて、その pod 用のルールが追加されたのがわかりますが、他にもう一つルールが追加されています。
 ---
 texts:
   en: >-

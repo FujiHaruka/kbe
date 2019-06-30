@@ -20,7 +20,7 @@ texts:
     While there is a service discovery option based on [environment variables](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#environment-variables) available,
 
     the DNS-based service discovery is preferable. Note that DNS is a [cluster add-on](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/README.md) so make sure your Kubernetes distribution provides for one or install it yourself.
-  ja: Service discovery は [service](/service/) に接続する方法を見つけるプロセスです。[環境変数](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#environment-variables)をベースにした servcice discovery オプションはありますが、DNS ベースの service discovery のほうがお勧めです。DNS は[クラスタアドオン](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/README.md)なので、Kubernetes ディストリビューションがそのアドオンを提供していることを確認してください。なければ自身でインストールしてください。
+  ja: service discovery は [service](/service/) に接続する方法を見つけるプロセスです。[環境変数](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#environment-variables)ベースの servcice discovery オプションがありますが、DNS ベースの service discovery のほうがお勧めです。DNS は[クラスタアドオン](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/README.md)なので、Kubernetes ディストリビューションがそのアドオンを提供していることを確認してください。なければご自身でインストールしてください。
 ---
 texts:
   en: >-
@@ -29,7 +29,7 @@ texts:
     `thesvc` and an [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/rc.yaml) supervising
 
     some pods along with it:
-  ja: `thesvc` という名前の [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/svc.yaml) と、それに沿っていくつかの pod を管理する [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/rc.yaml) を作成しましょう。
+  ja: `thesvc` という名前の [service](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/svc.yaml) と、それに伴っていくつかの pod を管理する [RC](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/rc.yaml) を作成しましょう。
 ---
 texts:
   en: >-
@@ -38,14 +38,14 @@ texts:
     To simulate this, we create a [jump pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/jumpod.yaml)
 
     in the same namespace (`default`, since we didn't specify anything else):
-  ja: クラスタの内部から、たとえば別の service から `thesvc` service に接続したいとします。これをシミュレートするために、同じ名前空間内に [jump pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/jumpod.yaml) を作ります。(名前空間は特に指定していないので `default` です)
+  ja: クラスタ内部から、たとえば別の service から `thesvc` service に接続したいとします。これをシミュレートするために、同じ名前空間内に [jump pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/jumpod.yaml) を作ります。(名前空間は特に指定していないので `default` です)
 ---
 texts:
   en: >-
     The DNS add-on will make sure that our service `thesvc` is available via the FQDN
 
     `thesvc.default.svc.cluster.local` from other pods in the cluster. Let's try it out:
-  ja: DNS アドオンは service `thesvc` が FQDN `thesvc.default.svc.cluster.local` を通じてクラスタ内の他の pod からアクセス可能であることを保証してくれます。試してみましょう。
+  ja: DNS アドオンは `thesvc` service が FQDN `thesvc.default.svc.cluster.local` を通じてクラスタ内の他の pod からアクセス可能であることを保証してくれます。試してみましょう。
 ---
 texts:
   en: >-
@@ -70,7 +70,7 @@ texts:
 ---
 texts:
   en: "Let's see how that works by creating:"
-  ja: どういう仕組み化を理解するために、以下を作成しましょう。
+  ja: どういう仕組みか理解するために、以下を作成しましょう。
 ---
 texts:
   en: a [namespace](https://github.com/openshift-evangelists/kbe/blob/master/specs/sd/other-ns.yaml) `other`
@@ -93,22 +93,22 @@ texts:
     We're now in the position to consume the service `thesvc` in namespace `other` from the
 
     `default` namespace (again via the jump pod):
-  ja: これで、名前空間 `other` 内の service `thesvc` に名前空間 `default` から (また jump pod を通じて) アクセスできるようになりました。
+  ja: これで、名前空間 `other` 内の `thesvc` service に名前空間 `default` から (再度 jump pod を通じて) アクセスできるようになりました。
 ---
 texts:
   en: >-
     Summing up, DNS-based service discovery provides a flexible and generic way to
 
     connect to services across the cluster.
-  ja: まとめると、DNS ベースの service discovery は、クラスタを横断して service に接続する柔軟で一般的な方法を提供します。
+  ja: まとめると、DNS ベースの service discovery は、クラスタ内を横断して service に接続する柔軟で一般的な方法を提供します。
 ---
 texts:
   en: "You can destroy all the resources created with:"
-  ja: 作成したリソースは以下ですべて削除できます。
+  ja: 作成したリソースをすべて削除するには以下を実行します。
 ---
 texts:
   en: Keep in mind that removing a namespace will destroy every resource inside.
-  ja: 名前空間を削除するとその中のすべてのリソースが削除されることを覚えていてください。
+  ja: 名前空間を削除するとその中のすべてのリソースが削除されることを覚えておいてください。
 ---
 texts:
   en: "[Previous](/services) | [Next](/pf)"

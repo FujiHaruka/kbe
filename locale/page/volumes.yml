@@ -18,38 +18,38 @@ texts:
     A Kubernetes volume is essentially a directory accessible to all containers
 
     running in a pod. In contrast to the container-local filesystem, the data in volumes is preserved across container restarts. The medium backing a volume and its contents are determined by the volume type:
-  ja: Kubernetes の volume は大雑把にいうと pod 内で実行中のすべてのコンテナからアクセス可能なディレクトリです。コンテナ内のファイルシステムとは対照的に、volume 内のデータはコンテナが再起動しても保持されます。volume を裏付ける媒体と volume の内容は volume タイプによって決定されます。
+  ja: Kubernetes の volume は大雑把にいうと、pod 内で実行中のすべてのコンテナからアクセスできるディレクトリです。コンテナ内のファイルシステムとは対照的に、volume 内のデータはコンテナが再起動しても保持されます。volume の裏で使われる媒体と volume の内容は volume タイプによって決定されます。
 ---
 texts:
   en: node-local types such as `emptyDir` or `hostPath`
-  ja: node 内で有効なもの (`emptyDir`、`hostPath` など)
+  ja: node 内で有効なタイプ (`emptyDir`、`hostPath` など)
 ---
 texts:
   en: file-sharing types such as `nfs`
-  ja: ファイル共有 (`nfs` など)
+  ja: ファイル共有のタイプ (`nfs` など)
 ---
 texts:
   en: cloud provider-specific types like `awsElasticBlockStore`, `azureDisk`, or `gcePersistentDisk`
-  ja: クラウドプロバイダ特有のもの (`awsElasticBlockStore`、`azureDisk`、`gcePersistentDisk` など)
+  ja: クラウドプロバイダ特有のタイプ (`awsElasticBlockStore`、`azureDisk`、`gcePersistentDisk` など)
 ---
 texts:
   en: distributed file system types, for example `glusterfs` or `cephfs`
-  ja: 分散ファイルシステム (たとえば `glusterfs`、`cephfs`)
+  ja: 分散ファイルシステムのタイプ (たとえば `glusterfs`、`cephfs`)
 ---
 texts:
   en: special-purpose types like `secret`, `gitRepo`
-  ja: 特別な用途で使うもの (`secret`、`gitRepo` など)
+  ja: 特別な用途で使うタイプ (`secret`、`gitRepo` など)
 ---
 texts:
   en: A special type of volume is `PersistentVolume`, which we will cover elsewhere.
-  ja: 特殊な種類の volume として `PersistentVolume` がありますが、別の箇所で取り扱います。
+  ja: 特殊なタイプの volume として `PersistentVolume` がありますが、別のページで紹介します。
 ---
 texts:
   en: >-
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml)
 
     with two containers that use an `emptyDir` volume to exchange data:
-  ja: "[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作りましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。"
+  ja: "[pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/volumes/pod.yaml) を作成しましょう。2 つのコンテナが `emptyDir` volume を使ってデータを交換します。"
 ---
 texts:
   en: >-
@@ -76,11 +76,11 @@ texts:
 ---
 texts:
   en: "You can remove the pod with:"
-  ja: pod を削除するには以下のようにします。
+  ja: pod を削除するには以下を実行します。
 ---
 texts:
   en: As already described, this will destroy the shared volume and all its contents.
-  ja: すでに述べたように、これは共有 volume とその内容はすべて削除されます。
+  ja: 前述のように、共有 volume とその内容はすべて削除されます。
 ---
 texts:
   en: "[Previous](/ns) | [Next](/pv)"

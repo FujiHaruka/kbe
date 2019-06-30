@@ -27,7 +27,7 @@ texts:
     Let's create a [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml)
 
     called `countdown` that supervises a pod counting from 9 down to 1:
-  ja: `countdown` という [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml) を作成しまそふ。これは 9 から 1 にカウントダウンする pod を管理します。
+  ja: `countdown` という名前の [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml) を作成しましょう。これは 9 から 1 にカウントダウンする pod を管理します。
 ---
 texts:
   en: "You can see the job and the pod it looks after like so:"
@@ -35,18 +35,18 @@ texts:
 ---
 texts:
   en: "To learn more about the status of the job, do:"
-  ja: job のステータスについてさらに知るには、こうします。
+  ja: job のステータスについて詳細を知るには、以下のようにします。
 ---
 texts:
   en: "And to see the output of the job via the pod it supervised, execute:"
-  ja: そして、job の出力をそれが管理している pod を通じて確認するには、以下を実行します。
+  ja: そして、job の出力をそれが管理している pod から確認するには、以下を実行します。
 ---
 texts:
   en: >-
     To clean up, use the `delete` verb on the job object which will remove all the
 
     supervised pods:
-  ja: クリーンアップするには、`delete` コマンドを job オブジェクトに使います。job が管理している pod もすべて削除されます。
+  ja: クリーンアップのため、`delete` コマンドを job オブジェクトに実行します。job が管理している pod もすべて削除されます。
 ---
 texts:
   en: >-

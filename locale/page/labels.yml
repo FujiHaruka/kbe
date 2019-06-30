@@ -26,7 +26,7 @@ texts:
     environments such as 'this pod is running in production' or ownership,
 
     like 'department X owns that pod'.
-  ja: label は Kubernetes オブジェクトを組織化するための仕組みです。label は key/value のペアで、長さと許可される値にはある[制約](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set)が課せられますが、事前に意味は定義されていません。そのため、label は目的に合わせて自由に選べます。たとえば、「この pod はプロダクション環境で実行されている」といった環境を表現したり、「あの pod は X 課が所有している」といった所有権を表現したりできます。
+  ja: label は Kubernetes オブジェクトをまとめるための仕組みです。label は key/value のペアで、値の長さと許可される値には[制約](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set)がありますが、事前に意味は定義されていません。そのため、label は目的に合わせて自由に選べます。たとえば、「この pod はプロダクション環境で実行されている」というように環境を表現したり、「あの pod は X 課が所有している」というように所有権を表現したりできます。
 ---
 texts:
   en: "Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/pod.yaml) that initially has one label (`env=development`):"
@@ -55,7 +55,7 @@ texts:
     The `--selector` option can be abbreviated to `-l`, so to select pods that are
 
     labelled with `env=development`, do:
-  ja: "`--selector` オプションは `-l` に短縮できます。`env=development` という label の pod だけを選ぶにはこうします。"
+  ja: "`--selector` オプションは `-l` に短縮できます。`env=development` という label の pod だけを選ぶには以下のようにします。"
 ---
 texts:
   en: >-
@@ -64,7 +64,7 @@ texts:
     Let's launch [another pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/anotherpod.yaml)
 
     that has two labels (`env=production` and `owner=michael`):
-  ja: Kubernetes オブジェクトは複数の値を扱う set-based selector もサポートしています。もう一つの [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/anotherpod.yaml) を起動しましょう。二つの label が (`env=production` と `owner=michael`) 付けられています。
+  ja: Kubernetes オブジェクトは複数の値を扱う set-based selector もサポートしています。別の [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/labels/anotherpod.yaml) を起動しましょう。二つの label (`env=production` と `owner=michael`) が付いています。
 ---
 texts:
   en: >-
@@ -78,11 +78,11 @@ texts:
     Other verbs also support label selection, for example, you could
 
     remove both of these pods with:
-  ja: label selection は他のコマンドでもサポートされています。たとえば、これまでの pod を削除するには次のようにします。
+  ja: label selection は他のコマンドでもサポートされています。たとえば、これまで作成した pod を削除するには次のようにします。
 ---
 texts:
   en: Beware that this will destroy any pods with those labels.
-  ja: 指定した label をもつ pod がすべて削除されるので留意してください。
+  ja: 指定した label をもつ pod がすべて削除されるので注意してください。
 ---
 texts:
   en: "You can also delete them directly, via their names, with:"
@@ -93,7 +93,7 @@ texts:
     Note that labels are not restricted to pods. In fact you can apply them to
 
     all sorts of objects, such as nodes or services.
-  ja: label を付けられるのは pod だけではありません。node や service といったどんなオブジェクトにも label を適用できます。
+  ja: label を付けられるのは pod だけではありません。node や service のようなどんなオブジェクトにも label を適用できます。
 ---
 texts:
   en: "[Previous](/pods) | [Next](/deployments)"

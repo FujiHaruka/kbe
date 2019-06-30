@@ -18,14 +18,14 @@ texts:
     In Kubernetes, nodes are the (virtual) machines where your workloads in shape of pods run. As a developer you typically don't deal with nodes directly, however as an admin
 
     you might want to familiarize yourself with node [operations](https://kubernetes.io/docs/concepts/nodes/node/).
-  ja: Kubernetes において、node は pod の形をしたワークロードを実行する (仮想) マシンです。普通、開発者は node を直接扱いませんが、管理者は node の [操作](https://kubernetes.io/docs/concepts/nodes/node/) に慣れておくとよいでしょう。
+  ja: Kubernetes において、node は pod の形をしたワークロードを実行する (仮想) マシンです。普通、開発者は node を直接扱いませんが、管理者は node の[操作](https://kubernetes.io/docs/concepts/nodes/node/)に慣れておくとよいでしょう。
 ---
 texts:
   en: >-
     To list available nodes in your cluster (note that the output will depend on the environment
 
     you're using, I'm using [Minishift](/diy/)):
-  ja: クラスタ内で利用可能な node をリスト表示するには、以下を実行します (出力は環境によって異なります。ここでは [Minishift](/diy/) を使用しています)。
+  ja: クラスタ内で利用可能な node をリスト表示するには、以下を実行します。(出力は環境によって異なります。ここでは [Minishift](/diy/) を使用しています)
 ---
 texts:
   en: >-
@@ -34,22 +34,22 @@ texts:
     schedule a pod on a certain node. For this, we first need to label the node
 
     we want to target:
-  ja: 開発者の視点から興味深いタスクは、Kubernetes に特定の node 上の pod にスケジュールさせることです。そのために、まず対象の node に label を付ける必要があります。
+  ja: 開発者の視点から興味深いタスクは、Kubernetes に特定の node 上の pod をスケジュールさせることです。そのためにまず、対象の node に label を付ける必要があります。
 ---
 texts:
   en: >-
     Now we can create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/nodes/pod.yaml)
 
     that gets scheduled on the node with the label `shouldrun=here`:
-  ja: これで [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/nodes/pod.yaml) を作成できます。これは `shouldrun=here` という label の付いた node 上にスケジュールします。
+  ja: これで [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/nodes/pod.yaml) を作成できます。この pod は `shouldrun=here` という label の付いた node 上にスケジュールされます。
 ---
 texts:
   en: "To learn more about a specific node, `192.168.99.100` in our case, do:"
-  ja: 特定の node について、たとえば `192.168.99.100` について知るには以下を実行します。
+  ja: 特定の node について、たとえば `192.168.99.100` について詳細を知るには以下を実行します。
 ---
 texts:
   en: Note that there are more sophisticated methods than shown above, such as using affinity, to [assign pods to nodes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) and depending on your use case, you might want to check those out as well.
-  ja: なお、affinity を使って[node に pod を割り当てる](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)など、上に示したよりも洗練されたやり方があります。ユースケースによってはそういう他のやり方も調べるとよいでしょう。
+  ja: なお、affinity を使って [node に pod を割り当てる](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)など、上に示したよりも洗練されたやり方があります。ユースケースによっては他のやり方も調べるとよいでしょう。
 ---
 texts:
   en: "[Previous](/ic) | [Next](/api)"

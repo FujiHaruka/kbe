@@ -19,11 +19,11 @@ texts:
 ---
 texts:
   en: "In order to do this, one option is to proxy the API to your local environment, using:"
-  ja: そうするための一つの選択肢が、ローカル環境に API をプロキシすることです。以下のようにします。
+  ja: そうするための選択肢の一つが、ローカル環境に API をプロキシすることです。以下を実行します。
 ---
 texts:
   en: "Now you can query the API (in a separate terminal session) like so:"
-  ja: API にクエリを送るには (別のターミナルセッションで) 以下のようにします。
+  ja: API にクエリを送るには (別のターミナルセッションで) 以下を実行します。
 ---
 texts:
   en: "Alternatively, without proxying, you can use `kubectl` directly as follows to achieve the same:"
@@ -31,7 +31,7 @@ texts:
 ---
 texts:
   en: "Further, if you want to explore the supported API versions and/or resources, you can use the following commands:"
-  ja: また、サポートしている API のバージョンやリソースを調べたければ、以下のコマンドが使えます。
+  ja: また、サポートしている API のバージョンやリソースを調べたい場合は、以下のコマンドが使えます。
 ---
 texts:
   en: "[Previous](/nodes)"

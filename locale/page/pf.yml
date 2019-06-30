@@ -19,7 +19,7 @@ texts:
 ---
 texts:
   en: "Let's create an [app](https://github.com/openshift-evangelists/kbe/blob/master/specs/pf/app.yaml) consisting of a deployment and a service called `simpleservice`, serving on port `80`:"
-  ja: deployment と `simpleservice` という service から構成され、ポート `80` でサービス提供する [app](https://github.com/openshift-evangelists/kbe/blob/master/specs/pf/app.yaml) を作成しましょう。
+  ja: "[app](https://github.com/openshift-evangelists/kbe/blob/master/specs/pf/app.yaml) を作成しましょう。これは deployment と、 `simpleservice` という名前の service から構成され、ポート `80` でサービス提供します。" 
 ---
 texts:
   en: "Let's say want to access the `simpleservice` service from the local environment, say, your laptop, on port `8080`. So we forward the traffic as follows:"
@@ -35,7 +35,7 @@ texts:
 ---
 texts:
   en: Remember that port forwarding is not meant for production traffic but for development and experimentation.
-  ja: ポートフォワーディングは本番運用のトラフィックに使うべきではなく、開発用また実験用であることを覚えておいてくだあし。
+  ja: ポートフォワーディングは本番運用のトラフィックに使うべきではなく、開発用また実験用であることを覚えておいてください。
 ---
 texts:
   en: "[Previous](/sd) | [Next](/healthz)"

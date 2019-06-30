@@ -33,7 +33,7 @@ texts:
     of the application developer to expose a URL that the kubelet can
 
     use to determine if the container is healthy (and potentially ready).
-  ja: ここでは次のように HTTP ヘルスチェックをよく見ることにしましょう。留意点として、コンテナが正常かどうか (そして潜在的に利用できるかどうか) を判断するために kubelet が使用する URL を公開しておくのは、アプリケーション開発者の責任です。
+  ja: ここでは次のように HTTP ヘルスチェックを題材にしましょう。なお、コンテナが正常かどうか (そして潜在的に利用可能かどうか) を kubelet が判断するための URL を公開しておくのは、アプリケーション開発者の責任です。
 ---
 texts:
   en: >-
@@ -44,11 +44,11 @@ texts:
 ---
 texts:
   en: "In the pod specification we've defined the following:"
-  ja: pod の仕様定義の中で、次のように定義しました。
+  ja: pod の仕様中で、以下のように定義しました。
 ---
 texts:
   en: "Above means that Kubernetes will start checking the `/health` endpoint, after initially waiting 2 seconds, every 5 seconds. "
-  ja: 上記の意味を説明すると、Kubernetes は `/health` エンドポイントのチェックを最初に 2 秒待ってから 5 秒ごとに開始するということです。
+  ja: 上記の意味を説明すると、Kubernetes は `/health` エンドポイントのチェックを最初に 2 秒待ち、5 秒ごとに開始するということです。
 ---
 texts:
   en: "If we now look at the pod we can see that it is considered healthy:"
@@ -91,7 +91,7 @@ texts:
     to initialize some tables. In this case you want to signal when the container is
 
     ready to serve traffic.
-  ja: `livenessProbe` に加えて `readinessProbe` も定義できます。これは同じやり方で設定できますが、ユースケースとセマンティクスは異なります。`readinessProbe` は pod 内のコンテナの起動段階をチェックするのに使います。S3 のような外部ストレージからデータをロードするコンテナや、テーブルの初期化が必要なデータベースを想像してみてください。こういうときに、コンテナがトラフィックを処理する準備ができたら知らせてほしくなります。
+  ja: `livenessProbe` に加えて `readinessProbe` も定義できます。これは同じやり方で設定できますが、ユースケースと書き方は違っています。`readinessProbe` は pod 内のコンテナの起動段階をチェックするのに使います。S3 のような外部ストレージからデータを読み込むコンテナや、テーブルの初期化が必要なデータベースを想像してみてください。こういうときに、コンテナがトラフィックを処理する準備ができたら知らせてほしくなります。
 ---
 texts:
   en: >-
@@ -109,14 +109,14 @@ texts:
 ---
 texts:
   en: "You can remove all the created pods with:"
-  ja: 作成した pod をすべて削除するには以下のようにします。
+  ja: 作成した pod をすべて削除するには以下を実行します。
 ---
 texts:
   en: >-
     Learn more about configuring probes, including TCP and command probes, via the
 
     [docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
-  ja: TCP や command probe など、probe の設定についてさらに学ぶには [docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) を参照してください。
+  ja: TCP や command probe など、probe の設定についてさらに学ぶには[ドキュメント](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)を参照してください。
 ---
 texts:
   en: "[Previous](/sd) | [Next](/envs)"

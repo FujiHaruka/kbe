@@ -31,7 +31,7 @@ texts:
     Let's create a [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml)
 
     called `logme` that runs a container writing to `stdout` and `stderr`:
-  ja: `logme` という [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml) を作成しましょう。これは `stdout` と `stderr` に書き込むコンテナを実行します。
+  ja: `logme` という名前の [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/pod.yaml) を作成しましょう。これは `stdout` と `stderr` に書き込むコンテナを実行します。
 ---
 texts:
   en: >-
@@ -49,7 +49,7 @@ texts:
     Note that if you wouldn't have specified `--since=10s` in the above command, you
 
     would have gotten all log lines from the start of the container.
-  ja: なお、上のコマンドで `--since=10s` を指定しなければ、コンテナ起動後から書き込まれたログが全行取得できます。
+  ja: なお、上のコマンドで `--since=10s` を指定しない場合、コンテナ起動後から書き込まれたログを全行取得できます。
 ---
 texts:
   en: >-
@@ -60,7 +60,7 @@ texts:
     called `oneshot` that counts down from 9 to 1 and then exits. Using the `-p` option
 
     you can print the logs for previous instances of the container in a pod:
-  ja: ライフサイクルをすでに終了した pod についてもログを確認できます。そのために `oneshot` という [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/oneshotpod.yaml) を作成します。これは 9 から 1 までカウントダウンしてから停止します。`-p` オプションを使うと、pod 内のコンテナの以前の (previous) インスタンスについてログを表示できます。
+  ja: ライフサイクルを終了した pod についてもログを確認できます。そのために `oneshot` という名前の [pod](https://github.com/openshift-evangelists/kbe/blob/master/specs/logging/oneshotpod.yaml) を作成します。これは 9 から 1 までカウントダウンしてから停止します。`-p` オプションを使うと、pod 内にあるコンテナの以前の (previous) インスタンスについてログを表示できます。
 ---
 texts:
   en: "You can remove the created pods with:"
