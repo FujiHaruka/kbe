@@ -7,7 +7,7 @@ metaDataFormat = "yaml"
 contentDir = "content-ja"
 
 [Params]
-  subtitle = "Brought to you by the OpenShift team"
+  subtitle = "kubernetesbyexample.com の日本語訳"
   logo = "img/kbe-logo.png"
   favicon = "img/kbe-logo.ico"
   dateFormat = "2006-01-02"
@@ -20,4 +20,8 @@ contentDir = "content-ja"
 
 [[menu.main]]
   name = "Contribute"
-  url = "https://github.com/openshift-evangelists/kbe"
+  url = "https://github.com/FujiHaruka/kbe-ja"
+
+[[menu.main]]
+  name = "Original site"
+  url = "http://kubernetesbyexample.com"

@@ -2,6 +2,7 @@
 
 + Japanese translation of [`kubernetesbyexample.com`](http://kubernetesbyexample.com)
 + Forked from [openshift-evangelists/kbe](https://github.com/openshift-evangelists/kbe)
+  + Commit is c1fc506180e5ad3b80599aa1d0bcef1a2e958af2
 + Hosted on netlify [`kbe-ja.netlify.com`](https://kbe-ja.netlify.com/)
 
 ---
