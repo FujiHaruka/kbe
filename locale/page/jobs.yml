@@ -20,33 +20,33 @@ texts:
     a process that runs for a certain time to completion, for example a calculation
 
     or a backup operation.
-  ja: __COPY__
+  ja: Kubernetes の [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) はバッチ処理を実行する pod を管理します。ある時間になると実行されるプロセスで、たとえば計算やバックアップ操作を完了するために実行されます。
 ---
 texts:
   en: >-
     Let's create a [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml)
 
     called `countdown` that supervises a pod counting from 9 down to 1:
-  ja: __COPY__
+  ja: `countdown` という [job](https://github.com/openshift-evangelists/kbe/blob/master/specs/jobs/job.yaml) を作成しまそふ。これは 9 から 1 にカウントダウンする pod を管理します。
 ---
 texts:
   en: "You can see the job and the pod it looks after like so:"
-  ja: __COPY__
+  ja: job とそれが面倒を見ている pod は次のように確認できます。
 ---
 texts:
   en: "To learn more about the status of the job, do:"
-  ja: __COPY__
+  ja: job のステータスについてさらに知るには、こうします。
 ---
 texts:
   en: "And to see the output of the job via the pod it supervised, execute:"
-  ja: __COPY__
+  ja: そして、job の出力をそれが管理している pod を通じて確認するには、以下を実行します。
 ---
 texts:
   en: >-
     To clean up, use the `delete` verb on the job object which will remove all the
 
     supervised pods:
-  ja: __COPY__
+  ja: クリーンアップするには、`delete` コマンドを job オブジェクトに使います。job が管理している pod もすべて削除されます。
 ---
 texts:
   en: >-
@@ -55,8 +55,8 @@ texts:
     by utilizing a [work queue](https://kubernetes.io/docs/tasks/job/coarse-parallel-processing-work-queue/)
 
     or scheduling the execution at a certain time via [cron jobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/).
-  ja: __COPY__
+  ja: job の使用には他にも高度な方法があります。たとえば、[work queue](https://kubernetes.io/docs/tasks/job/coarse-parallel-processing-work-queue/) を活用したり、[cron jobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) で特定の時間に実行するようスケジュールしたりできます。
 ---
 texts:
   en: "[Previous](/logging) | [Next](/statefulset)"
-  ja: __COPY__
+  ja: "[前](/logging) | [次](/statefulset)"
