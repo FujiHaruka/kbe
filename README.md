@@ -1,6 +1,8 @@
 # Kubernetes By Example (KBE)
 
-Forked from [openshift-evangelists/kbe](https://github.com/openshift-evangelists/kbe).
++ Japanese translation of [`kubernetesbyexample.com`](http://kubernetesbyexample.com)
++ Forked from [openshift-evangelists/kbe](https://github.com/openshift-evangelists/kbe)
++ Hosted on netlify [`kbe-ja.netlify.com`](https://kbe-ja.netlify.com/)
 
 ---
 
